@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -39,9 +38,12 @@ const App: React.FC = () => {
           <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">
             Research Portfolio
           </span>
-          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">
-            Arpit Bhargava
-          </span>
+          {/* Replaced text name with SVG Image */}
+          <img 
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 20'%3E%3Ctext x='0' y='15' font-family='monospace' font-size='10' letter-spacing='0.1em' fill='%2394a3b8' text-transform='uppercase'%3EARPIT BHARGAVA%3C/text%3E%3C/svg%3E" 
+            alt="Signature" 
+            className="h-3 opacity-70" 
+          />
         </div>
       </footer>
     </div>

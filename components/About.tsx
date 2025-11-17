@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MailIcon, LinkedinIcon, LinkIcon } from './Icons';
 
@@ -62,9 +61,15 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 <div className="absolute -top-12 left-0 w-full h-32 pointer-events-none overflow-hidden opacity-20 md:opacity-100">
                      {/* Animation logic placeholder */}
                 </div>
-                <h1 className="text-6xl md:text-9xl font-black text-slate-900 mb-6 tracking-tighter leading-[0.85] bg-white/60 backdrop-blur-sm inline-block p-2">
-                ARPIT<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">BHARGAVA</span>
-                </h1>
+                
+                {/* Replaced Text H1 with SVG Image */}
+                <div className="mb-6 bg-white/60 backdrop-blur-sm inline-block p-2">
+                    <img 
+                        src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 180'%3E%3Ctext x='0' y='70' font-family='sans-serif' font-weight='900' font-size='80' letter-spacing='-0.05em' fill='%230f172a'%3EARPIT%3C/text%3E%3Ctext x='0' y='155' font-family='sans-serif' font-weight='900' font-size='80' letter-spacing='-0.05em' fill='%23334155'%3EBHARGAVA%3C/text%3E%3C/svg%3E" 
+                        alt="Profile Name" 
+                        className="w-full max-w-xl" 
+                    />
+                </div>
             </div>
             
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-12">

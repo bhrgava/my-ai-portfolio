@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { MenuIcon, CloseIcon } from './Icons';
 
@@ -39,9 +38,12 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
           className="flex items-center gap-2 cursor-pointer group" 
           onClick={() => handleNav('about')}
         >
-          <span className="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors uppercase">
-            Arpit Bhargava
-          </span>
+          {/* Replaced text with SVG Image */}
+          <img 
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24'%3E%3Ctext x='0' y='20' font-family='sans-serif' font-weight='800' font-size='18' letter-spacing='-0.02em' fill='%230f172a' text-transform='uppercase'%3EARPIT BHARGAVA%3C/text%3E%3C/svg%3E" 
+            alt="Logo" 
+            className="h-5" 
+          />
         </div>
 
         {/* Desktop Nav */}
