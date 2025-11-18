@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MailIcon, LinkedinIcon, LinkIcon } from './Icons';
 
@@ -63,11 +64,11 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 </div>
                 
                 {/* Replaced Text H1 with SVG Image */}
-                <div className="mb-6 bg-white/60 backdrop-blur-sm inline-block p-2">
+                <div className="mb-6 bg-white/60 backdrop-blur-sm block p-2 w-full">
                     <img 
                         src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 180'%3E%3Ctext x='0' y='70' font-family='sans-serif' font-weight='900' font-size='80' letter-spacing='-0.05em' fill='%230f172a'%3EARPIT%3C/text%3E%3Ctext x='0' y='155' font-family='sans-serif' font-weight='900' font-size='80' letter-spacing='-0.05em' fill='%23334155'%3EBHARGAVA%3C/text%3E%3C/svg%3E" 
                         alt="Profile Name" 
-                        className="w-full max-w-xl" 
+                        className="w-full" 
                     />
                 </div>
             </div>
