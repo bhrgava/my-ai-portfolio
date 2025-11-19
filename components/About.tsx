@@ -168,6 +168,18 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
               accentColor="border-yellow-500"
             />
           </div>
+          
+          <div className="mt-12 pl-8">
+             <a 
+               href="https://docs.google.com/document/d/1kHvC8FlJpJPiUcuIue-TDt2zG2Mfnsw8z3eFXf4cwp8/edit?tab=t.0"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 hover:text-blue-600 transition-colors group border-b border-slate-300 pb-1 hover:border-blue-600"
+             >
+               <span>View Full Resume</span>
+               <LinkIcon className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+             </a>
+          </div>
         </section>
 
         {/* Contact - Hard Card Style */}

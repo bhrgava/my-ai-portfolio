@@ -2,7 +2,7 @@
 import React from 'react';
 import ProblemVisualizer from './ProblemVisualizer';
 import UserJourney from './UserJourney';
-import { AlertIcon, CheckCircleIcon, ChevronDownIcon, SearchIcon } from './Icons';
+import { AlertIcon, CheckCircleIcon, ChevronDownIcon, SearchIcon, LinkIcon } from './Icons';
 
 const Section: React.FC<{
   id: string;
@@ -101,20 +101,30 @@ const SpannerCaseStudy: React.FC = () => {
 
       {/* CATALYST */}
       <Section id="catalyst" title="The Catalyst" subtitle="02 / Signals">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="max-w-4xl mx-auto">
              <div className="p-8 border border-slate-200 hover:border-red-600 transition-colors group bg-white shadow-[8px_8px_0px_0px_rgba(220,38,38,0.1)] hover:shadow-[8px_8px_0px_0px_rgba(220,38,38,1)]">
                 <AlertIcon className="w-8 h-8 text-slate-900 group-hover:text-red-600 mb-6" />
                 <h4 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">Ticket Surge</h4>
-                <p className="text-slate-600 text-lg font-light leading-relaxed">
+                <p className="text-slate-600 text-lg font-light leading-relaxed mb-8">
                   A sharp increase in "Unresolved Latency" support tickets. Customers knew something was wrong but couldn't prove it with existing charts.
                 </p>
-             </div>
-             <div className="p-8 border border-slate-200 hover:border-red-600 transition-colors group bg-white shadow-[8px_8px_0px_0px_rgba(220,38,38,0.1)] hover:shadow-[8px_8px_0px_0px_rgba(220,38,38,1)]">
-                <SearchIcon className="w-8 h-8 text-slate-900 group-hover:text-red-600 mb-6" />
-                <h4 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">Invisible Contention</h4>
-                <p className="text-slate-600 text-lg font-light leading-relaxed">
-                  While global averages looked healthy (green), specific shards were red-lining. The signal was diluted by the scale of the system.
-                </p>
+                
+                <div className="pt-6 border-t border-slate-100">
+                    <p className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3">
+                        Real-world Instance
+                    </p>
+                    <a 
+                        href="https://stackoverflow.com/questions/77396105/hotspots-in-specific-ranges-in-a-table-in-my-cloud-spanner-instance"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link inline-flex items-center gap-2 text-slate-900 font-medium hover:text-red-600 transition-colors"
+                    >
+                        <span className="border-b border-slate-200 group-hover/link:border-red-600 transition-colors">
+                            StackOverflow: "Hotspots in specific ranges..."
+                        </span>
+                        <LinkIcon className="w-3 h-3 text-slate-400 group-hover/link:text-red-600" />
+                    </a>
+                </div>
              </div>
         </div>
       </Section>
@@ -140,6 +150,27 @@ const SpannerCaseStudy: React.FC = () => {
                 </p>
              </div>
           </div>
+        </div>
+      </Section>
+
+      {/* RESULT */}
+      <Section id="result" title="The Result" subtitle="04 / Launch">
+        <div className="max-w-4xl">
+            <p className="text-2xl text-slate-800 leading-relaxed mb-8 font-light tracking-tight">
+                The research resulted in a new page called <span className="font-bold text-slate-900">"Hotspot Insights"</span>.
+            </p>
+            <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
+                  This feature allows users to determine whether hotspots need their intervention and to identify problematic hot splits, directly addressing the visibility gaps identified in our user journey audit.
+            </p>
+            <a 
+                href="https://docs.cloud.google.com/spanner/docs/find-hotspots-in-database" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-red-600 text-white font-bold uppercase tracking-widest hover:bg-red-700 transition-all group shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] hover:shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
+            >
+                <span>View Documentation</span>
+                <LinkIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
         </div>
       </Section>
     </div>
