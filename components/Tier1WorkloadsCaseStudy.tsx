@@ -13,8 +13,8 @@ const Section: React.FC<{
       <div className="max-w-5xl mx-auto w-full z-10">
         {(title || subtitle) && (
           <div className="mb-16">
-             {subtitle && <span className="text-amber-500 font-mono text-xs uppercase tracking-widest mb-2 block font-bold">{subtitle}</span>}
-             {title && <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">{title}</h2>}
+             {subtitle && <span className="text-amber-500 font-mono text-xs uppercase tracking-widest mb-3 block font-bold">{subtitle}</span>}
+             {title && <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter">{title}</h2>}
           </div>
         )}
         {children}
@@ -56,33 +56,33 @@ const Tier1WorkloadsCaseStudy: React.FC = () => {
                 <div className="grid md:grid-cols-12 gap-12">
                     <div className="md:col-span-6">
                         <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">The Usability Paradox</h3>
-                        <p className="text-slate-600 leading-relaxed mb-6 text-lg">
+                        <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
                             The Databases Observability team had spent significant cycles optimizing for "Ease of Use"—simplifying charts, decluttering interfaces, and streamlining navigation to help generalist developers.
                         </p>
-                        <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+                        <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
                             The product team faced strategic ambiguity regarding product direction for meeting the needs of customers with business critical workloads - a segment that typically did not yet use our products. The product team debated whether to define these users based on organizational size, specific roles (e.g., DBAs), or other criteria.
                         </p>
                     </div>
                     <div className="md:col-span-6 flex flex-col justify-center gap-4">
                         {/* Visual: The Confusion Matrix */}
                         <div className="border-2 border-dashed border-slate-300 p-8 relative bg-slate-50/50">
-                            <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-xs font-mono text-slate-400 uppercase">Definition Conflict</span>
+                            <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-[10px] font-mono text-slate-400 uppercase tracking-wider">Definition Conflict</span>
                             <div className="flex justify-center gap-8 opacity-50">
                                 <div className="text-center">
                                     <UsersIcon className="w-12 h-12 mx-auto mb-2 text-slate-400" />
-                                    <span className="font-mono text-xs uppercase">Role?</span>
+                                    <span className="font-mono text-xs uppercase tracking-widest">Role?</span>
                                 </div>
                                 <div className="w-[1px] bg-slate-300 h-16"></div>
                                 <div className="text-center">
                                     <BriefcaseIcon className="w-12 h-12 mx-auto mb-2 text-slate-400" />
-                                    <span className="font-mono text-xs uppercase">Size?</span>
+                                    <span className="font-mono text-xs uppercase tracking-widest">Size?</span>
                                 </div>
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="text-4xl font-black text-slate-200">?</span>
                             </div>
                         </div>
-                        <p className="text-xs font-mono text-slate-400 text-center mt-4 uppercase tracking-widest">
+                        <p className="text-[10px] font-mono text-slate-400 text-center mt-4 uppercase tracking-widest">
                             Fig 1.1: The Segmentation Deadlock
                         </p>
                     </div>
@@ -93,14 +93,14 @@ const Tier1WorkloadsCaseStudy: React.FC = () => {
             <Section id="catalyst" title="The Investigation" subtitle="02 / Action">
                 <div className="grid md:grid-cols-2 gap-12">
                      <div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-4">The Catalyst</h3>
-                        <p className="text-slate-600 leading-relaxed mb-8">
+                        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">The Catalyst</h3>
+                        <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
                             Persistent internal debate necessitated a formal, research-driven definition of the high-value, high-need customer segment to align feature development.
                         </p>
                      </div>
                      <div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-4">My Action</h3>
-                        <p className="text-slate-600 leading-relaxed mb-8">
+                        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">My Action</h3>
+                        <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
                             Conducted a series of expert interviews with internal Google leaders to produce a definitive report on the needs of this type of customer.
                         </p>
                      </div>
@@ -111,11 +111,11 @@ const Tier1WorkloadsCaseStudy: React.FC = () => {
             <Section id="outcome" title="The Pivot" subtitle="03 / Outcome">
                 <div className="grid md:grid-cols-2 gap-12">
                     <div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6">Reframing the Core</h3>
-                        <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+                        <h3 className="text-2xl font-bold text-slate-900 mb-6 tracking-tight">Reframing the Core</h3>
+                        <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
                             The research reframed the core segmentation criteria, showing that <span className="font-bold text-amber-600 bg-amber-50 px-1">workload criticality</span> - not user role or company size - was the defining factor that drove advanced troubleshooting needs.
                         </p>
-                        <p className="text-slate-600 leading-relaxed">
+                        <p className="text-slate-600 leading-relaxed text-lg font-light">
                             The report simultaneously identified specific feature deficiencies for supporting these critical workloads.
                         </p>
                     </div>
@@ -125,17 +125,17 @@ const Tier1WorkloadsCaseStudy: React.FC = () => {
                         <div className="flex items-center justify-between p-6 border border-slate-200 text-slate-400 bg-slate-50">
                             <div className="flex items-center gap-4">
                                 <UsersIcon className="w-5 h-5"/>
-                                <span className="line-through decoration-slate-400 font-mono">Job Title</span>
+                                <span className="line-through decoration-slate-400 font-mono text-sm">Job Title</span>
                             </div>
-                            <span className="font-mono text-xs font-bold border border-slate-300 px-2 py-1">DEPRECATED</span>
+                            <span className="font-mono text-[10px] font-bold border border-slate-300 px-2 py-1 uppercase tracking-wider">DEPRECATED</span>
                         </div>
                         
                         <div className="flex items-center justify-between p-6 border border-slate-200 text-slate-400 bg-slate-50">
                              <div className="flex items-center gap-4">
                                 <BriefcaseIcon className="w-5 h-5"/>
-                                <span className="line-through decoration-slate-400 font-mono">Company Size</span>
+                                <span className="line-through decoration-slate-400 font-mono text-sm">Company Size</span>
                              </div>
-                             <span className="font-mono text-xs font-bold border border-slate-300 px-2 py-1">DEPRECATED</span>
+                             <span className="font-mono text-[10px] font-bold border border-slate-300 px-2 py-1 uppercase tracking-wider">DEPRECATED</span>
                         </div>
                         
                         <div className="relative flex items-center justify-between p-8 bg-white border border-amber-500 shadow-[8px_8px_0px_0px_rgba(245,158,11,1)] transform -translate-x-2 -translate-y-2 transition-transform hover:translate-x-0 hover:translate-y-0 hover:shadow-none">
@@ -143,10 +143,10 @@ const Tier1WorkloadsCaseStudy: React.FC = () => {
                                 <TargetIcon className="w-8 h-8 text-amber-500"/>
                                 <div>
                                     <span className="block font-bold uppercase tracking-wider text-slate-900">Workload Criticality</span>
-                                    <span className="text-xs text-slate-500">Tier 1 vs Tier 2</span>
+                                    <span className="text-xs text-slate-500 font-mono mt-1">Tier 1 vs Tier 2</span>
                                 </div>
                              </div>
-                             <span className="font-mono text-xs font-bold bg-amber-500 text-white px-3 py-1">PRIMARY_KEY</span>
+                             <span className="font-mono text-[10px] font-bold bg-amber-500 text-white px-3 py-1 uppercase tracking-widest">PRIMARY_KEY</span>
                         </div>
                     </div>
                 </div>
@@ -155,18 +155,18 @@ const Tier1WorkloadsCaseStudy: React.FC = () => {
             {/* IMPACT */}
             <Section id="impact" title="The Impact" subtitle="04 / Resolution">
                  <div className="bg-slate-900 p-12 shadow-[8px_8px_0px_0px_rgba(245,158,11,1)] text-white">
-                     <h3 className="text-2xl font-bold mb-6 text-amber-400">Strategic Focus Established</h3>
-                     <p className="text-slate-300 leading-relaxed max-w-3xl mb-8">
+                     <h3 className="text-2xl font-bold mb-6 text-amber-400 tracking-tight">Strategic Focus Established</h3>
+                     <p className="text-slate-300 leading-relaxed max-w-3xl mb-8 text-lg font-light">
                         The findings immediately established the product team's strategic focus and directly initiated the development of new features designed specifically to remediate the gaps identified for critical workloads.
                      </p>
                      <div className="w-full h-[1px] bg-slate-700 mb-8"></div>
                      <div className="grid grid-cols-2 gap-8">
                         <div>
-                            <span className="block text-xs font-mono text-slate-500 uppercase mb-2">Status</span>
+                            <span className="block text-[10px] font-mono text-slate-500 uppercase mb-2 tracking-widest">Status</span>
                             <span className="text-lg font-bold text-white">In Development</span>
                         </div>
                         <div>
-                            <span className="block text-xs font-mono text-slate-500 uppercase mb-2">Target</span>
+                            <span className="block text-[10px] font-mono text-slate-500 uppercase mb-2 tracking-widest">Target</span>
                             <span className="text-lg font-bold text-white">Tier 1 Remediation</span>
                         </div>
                      </div>

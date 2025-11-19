@@ -13,8 +13,8 @@ const Section: React.FC<{
       <div className="max-w-5xl mx-auto w-full z-10">
         {(title || subtitle) && (
           <div className="mb-16">
-             {subtitle && <span className="text-cyan-600 font-mono text-xs uppercase tracking-widest mb-2 block font-bold">{subtitle}</span>}
-             {title && <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">{title}</h2>}
+             {subtitle && <span className="text-cyan-600 font-mono text-xs uppercase tracking-widest mb-3 block font-bold">{subtitle}</span>}
+             {title && <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter">{title}</h2>}
           </div>
         )}
         {children}
@@ -32,19 +32,19 @@ const AIConceptVisualizer: React.FC = () => {
             id: 1,
             name: "Concept A: Chat",
             steps: ["Step 1", "Step 2", "Step 3", "Result"],
-            scoreLabel: "Low"
+            scoreLabel: "?"
         },
         {
             id: 2,
             name: "Concept B: Direct",
             steps: ["Result"],
-            scoreLabel: "Medium"
+            scoreLabel: "?"
         },
         {
             id: 3,
             name: "Concept C: Modal",
             steps: ["Context", "Analysis", "Fix"],
-            scoreLabel: "High"
+            scoreLabel: "?"
         }
     ];
 
@@ -58,17 +58,16 @@ const AIConceptVisualizer: React.FC = () => {
     return (
         <div className="bg-white border border-slate-900 p-8 w-full shadow-[8px_8px_0px_0px_rgba(8,145,178,1)]">
             <div className="flex justify-between items-center mb-8 border-b border-slate-200 pb-4">
-                <h3 className="font-mono text-sm font-bold uppercase">Comparative Evaluation</h3>
-                <span className="font-mono text-xs bg-slate-100 px-2 py-1">n=12 Participants</span>
+                <h3 className="font-mono text-xs font-bold uppercase tracking-widest">Comparative Evaluation</h3>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
                 {concepts.map((concept) => (
                     <div key={concept.id} className="flex flex-col">
-                         <div className="text-xs font-bold uppercase mb-4 text-slate-400">{concept.name}</div>
+                         <div className="text-[10px] font-bold uppercase mb-4 text-slate-400 tracking-widest">{concept.name}</div>
                          
                          {/* Wireframe Box */}
-                         <div className={`flex-1 border-2 p-4 min-h-[200px] relative flex flex-col gap-2 ${concept.scoreLabel === 'High' ? 'border-cyan-600 bg-cyan-50' : 'border-slate-200 bg-slate-50'}`}>
+                         <div className={`flex-1 border-2 p-4 min-h-[200px] relative flex flex-col gap-2 ${concept.name.includes('Modal') ? 'border-cyan-600 bg-cyan-50' : 'border-slate-200 bg-slate-50'}`}>
                             
                             {/* Steps Animation */}
                             {concept.steps.map((step, idx) => (
@@ -84,8 +83,8 @@ const AIConceptVisualizer: React.FC = () => {
 
                             {/* Score */}
                             <div className={`mt-auto pt-4 border-t border-slate-200 flex justify-between items-end transition-opacity duration-500 ${activeStep >= totalSteps ? 'opacity-100' : 'opacity-0'}`}>
-                                <span className="text-[10px] font-mono">UTILITY_SCORE</span>
-                                <span className={`text-xl font-bold ${concept.scoreLabel === 'High' ? 'text-cyan-600' : 'text-slate-900'}`}>
+                                <span className="text-[10px] font-mono uppercase">Total Helpfulness Score</span>
+                                <span className={`text-xl font-bold text-slate-900`}>
                                     {concept.scoreLabel}
                                 </span>
                             </div>
@@ -120,7 +119,7 @@ const AICaseStudy: React.FC = () => {
                     <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
                         AI<br/>PARADIGMS
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl mb-12 bg-white/80 backdrop-blur-sm p-4 border-l-4 border-cyan-500">
+                    <p className="text-xl text-slate-600 max-w-2xl mb-12 bg-white/80 backdrop-blur-sm p-4 border-l-4 border-cyan-500 font-light leading-relaxed">
                         Chatbot or Tool? Defining the interaction model for AI in observability.
                     </p>
                 </div>
@@ -134,10 +133,10 @@ const AICaseStudy: React.FC = () => {
                         {/* 1. The Operational Reality (Combined) */}
                         <div>
                             <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">1. The Operational Reality</h3>
-                            <p className="text-slate-600 leading-relaxed mb-4">
+                            <p className="text-slate-600 leading-relaxed mb-4 text-lg font-light">
                                 Managed databases are the silent infrastructure powering modern applications. When they experience latency or outages, the impact is immediate and financial.
                             </p>
-                            <p className="text-slate-600 leading-relaxed">
+                            <p className="text-slate-600 leading-relaxed text-lg font-light">
                                 "Troubleshooting" in this context is not a casual exploration—it is a high-pressure, time-critical race to identify root causes and restore service.
                             </p>
                         </div>
@@ -145,7 +144,7 @@ const AICaseStudy: React.FC = () => {
                          {/* 2. The Hypothesis */}
                          <div>
                             <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">2. The AI Hypothesis</h3>
-                            <p className="text-slate-600 leading-relaxed">
+                            <p className="text-slate-600 leading-relaxed text-lg font-light">
                                 In 2024, the product team faced a crucial strategic decision: how to leverage AI to simplify database troubleshooting. While key user pain points were known, the optimal interface (e.g., chat vs. modal) and interaction style remained undefined.
                             </p>
                         </div>
@@ -176,7 +175,7 @@ const AICaseStudy: React.FC = () => {
                                          </div>
                                      </div>
                                  </div>
-                                 <span className="font-mono text-xs text-center text-slate-900 font-bold uppercase">Hypothesis A: The Chatbot</span>
+                                 <span className="font-mono text-[10px] text-center text-slate-900 font-bold uppercase tracking-wider">Hypothesis A: The Chatbot</span>
                              </div>
 
                              {/* Wireframe 2: Modal */}
@@ -196,7 +195,7 @@ const AICaseStudy: React.FC = () => {
                                          <div className="mt-auto w-full h-6 bg-cyan-600 flex items-center justify-center text-white text-[8px] font-bold tracking-widest uppercase">Apply Fix</div>
                                      </div>
                                  </div>
-                                 <span className="font-mono text-xs text-center text-cyan-600 font-bold uppercase">Hypothesis B: The Tool</span>
+                                 <span className="font-mono text-[10px] text-center text-cyan-600 font-bold uppercase tracking-wider">Hypothesis B: The Tool</span>
                              </div>
                         </div>
                     </div>
@@ -206,10 +205,10 @@ const AICaseStudy: React.FC = () => {
             <Section id="experiment" title="The Experiment" subtitle="02 / Testing">
                 <div className="max-w-3xl mb-16">
                     <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">Methodology</h3>
-                    <p className="text-slate-600 leading-relaxed mb-6">
+                    <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
                         I designed and executed evaluative research testing three distinct AI troubleshooting concepts—differing across chat vs. modal, conversational vs. direct, and visual vs. text-only paradigms.
                     </p>
-                    <p className="text-slate-600 leading-relaxed mb-12">
+                    <p className="text-slate-600 leading-relaxed mb-12 text-lg font-light">
                         The team mocked up each concept using the same underlying data. Participants then tested all three, allowing me to collect observational data and user-reported helpfulness scores at both the flow and step-by-step levels.
                     </p>
                 </div>
@@ -218,11 +217,11 @@ const AICaseStudy: React.FC = () => {
 
             <Section id="outcome" title="The Verdict" subtitle="03 / Conclusion">
                  <div className="bg-slate-900 text-white p-12 shadow-[8px_8px_0px_0px_rgba(8,145,178,1)]">
-                     <h3 className="text-3xl font-bold mb-6 text-cyan-400">Structure > Conversation</h3>
-                     <p className="text-slate-300 text-lg leading-relaxed max-w-3xl mb-8">
+                     <h3 className="text-3xl font-bold mb-6 text-cyan-400">Structure more than Conversation</h3>
+                     <p className="text-slate-300 text-lg font-light leading-relaxed max-w-3xl mb-8">
                          The research proved that in high-stress scenarios, users reject "Chatty" AI. They prefer **Structured Modals** that present the Root Cause, The Fix, and The Evidence in a verifiable format.
                      </p>
-                     <p className="text-slate-400 text-base leading-relaxed max-w-3xl mb-8">
+                     <p className="text-slate-400 text-lg font-light leading-relaxed max-w-3xl mb-8">
                         The final report established key principles governing how users perceive and expect AI tools to function. This research was instrumental in shaping the feature's entire direction, providing the team with a validated concept and design principles for the future development of the AI-powered troubleshooting experience.
                      </p>
                      <div className="flex items-center gap-4">
@@ -235,7 +234,7 @@ const AICaseStudy: React.FC = () => {
             <Section id="launch" title="The Result" subtitle="04 / Realization">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <p className="text-xl text-slate-800 leading-relaxed mb-8 font-light">
+                        <p className="text-2xl text-slate-800 leading-relaxed mb-8 font-light tracking-tight">
                             The insights from this research directly informed the design of <span className="font-bold">Gemini in Databases</span>. The final product successfully integrates the structured, modal-based approach validated by our testing.
                         </p>
                         <a 
@@ -250,10 +249,10 @@ const AICaseStudy: React.FC = () => {
                     </div>
                     <div className="bg-slate-50 p-8 border border-slate-200 shadow-[8px_8px_0px_0px_rgba(8,145,178,0.2)]">
                          <h4 className="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4">From the Blog</h4>
-                         <blockquote className="text-slate-900 font-serif text-lg italic leading-relaxed mb-6">
+                         <blockquote className="text-slate-900 font-serif text-xl italic leading-relaxed mb-6">
                             "We designed the experience to meet users where they are... providing context-aware suggestions that help DBAs move from detection to resolution in seconds."
                          </blockquote>
-                         <div className="text-xs font-bold uppercase text-cyan-600">Google Cloud Blog</div>
+                         <div className="text-xs font-bold uppercase text-cyan-600 tracking-widest">Google Cloud Blog</div>
                     </div>
                 </div>
             </Section>

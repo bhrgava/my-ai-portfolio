@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ProblemVisualizer from './ProblemVisualizer';
 import UserJourney from './UserJourney';
@@ -14,8 +15,8 @@ const Section: React.FC<{
     <div className="max-w-5xl mx-auto w-full z-10">
       {(title || subtitle) && (
         <div className="mb-16">
-           {subtitle && <span className="text-red-600 font-mono text-xs uppercase tracking-widest mb-2 block font-bold">{subtitle}</span>}
-           {title && <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">{title}</h2>}
+           {subtitle && <span className="text-red-600 font-mono text-xs uppercase tracking-widest mb-3 block font-bold">{subtitle}</span>}
+           {title && <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter">{title}</h2>}
         </div>
       )}
       {children}
@@ -70,10 +71,10 @@ const SpannerCaseStudy: React.FC = () => {
             {/* Concept Definition - High Level */}
             <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">1. The Distributed Premise</h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
+                <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
                     Imagine a standard database as a single cashier at a grocery store. If the line gets too long, the only solution is to make the cashier work faster (add more CPU). 
                 </p>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed text-lg font-light">
                     <strong>Spanner</strong> is different. It is a "distributed" database. It's like opening 1,000 checkout lanes simultaneously. To make this work, the system automatically splits the customers (data) evenly across all 1,000 lanes. Ideally, every lane is busy, but moving fast.
                 </p>
             </div>
@@ -81,14 +82,14 @@ const SpannerCaseStudy: React.FC = () => {
              {/* The Anomaly */}
             <div className="mt-12">
               <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">2. The Anomaly: Hotspotting</h3>
-              <p className="text-slate-600 leading-relaxed mb-6">
+              <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
                 "Hotspotting" is when this logic breaks. Imagine if, due to a misunderstanding, all 1,000 customers tried to squeeze into <strong>Checkout Lane #1</strong> at the same time, while lanes 2 through 1,000 stood empty.
               </p>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed text-lg font-light">
                  Lane #1 collapses under the load. The store grinds to a halt. To the manager (our user), it just looks like "the store is slow," but the root cause is an invisible imbalance in traffic distribution.
               </p>
             </div>
-            <p className="font-mono text-xs text-red-400 uppercase mt-auto pt-12">
+            <p className="font-mono text-[10px] text-red-400 uppercase mt-auto pt-12 tracking-widest">
                 Fig 1.1: Theory of Operations
             </p>
           </div>
@@ -103,15 +104,15 @@ const SpannerCaseStudy: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8">
              <div className="p-8 border border-slate-200 hover:border-red-600 transition-colors group bg-white shadow-[8px_8px_0px_0px_rgba(220,38,38,0.1)] hover:shadow-[8px_8px_0px_0px_rgba(220,38,38,1)]">
                 <AlertIcon className="w-8 h-8 text-slate-900 group-hover:text-red-600 mb-6" />
-                <h4 className="text-2xl font-bold text-slate-900 mb-4">Ticket Surge</h4>
-                <p className="text-slate-600">
+                <h4 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">Ticket Surge</h4>
+                <p className="text-slate-600 text-lg font-light leading-relaxed">
                   A sharp increase in "Unresolved Latency" support tickets. Customers knew something was wrong but couldn't prove it with existing charts.
                 </p>
              </div>
              <div className="p-8 border border-slate-200 hover:border-red-600 transition-colors group bg-white shadow-[8px_8px_0px_0px_rgba(220,38,38,0.1)] hover:shadow-[8px_8px_0px_0px_rgba(220,38,38,1)]">
                 <SearchIcon className="w-8 h-8 text-slate-900 group-hover:text-red-600 mb-6" />
-                <h4 className="text-2xl font-bold text-slate-900 mb-4">Invisible Contention</h4>
-                <p className="text-slate-600">
+                <h4 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">Invisible Contention</h4>
+                <p className="text-slate-600 text-lg font-light leading-relaxed">
                   While global averages looked healthy (green), specific shards were red-lining. The signal was diluted by the scale of the system.
                 </p>
              </div>
@@ -122,31 +123,21 @@ const SpannerCaseStudy: React.FC = () => {
       <Section id="outcome" title="The Findings" subtitle="03 / Analysis">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
-            <p className="text-xl text-slate-800 leading-relaxed mb-12 font-light">
+            <p className="text-2xl text-slate-900 leading-relaxed mb-12 font-light tracking-tight">
               We mapped the troubleshooting journey and found a <span className="font-bold bg-red-100 px-1 text-red-900">critical breakage</span> in the investigation phase.
             </p>
             <UserJourney />
           </div>
           <div className="flex flex-col justify-center">
-             <div className="bg-slate-50 p-8 border border-slate-200 shadow-[8px_8px_0px_0px_rgba(220,38,38,1)]">
+             <div className="bg-slate-50 p-12 border border-slate-200 shadow-[8px_8px_0px_0px_rgba(220,38,38,1)]">
                 <span className="text-red-600 font-mono text-xs uppercase tracking-widest mb-4 block">Strategic Impact</span>
-                <h3 className="text-3xl font-bold text-slate-900 mb-6">Engineering Pivot</h3>
-                <ul className="space-y-6">
-                  <li className="flex gap-4">
-                    <CheckCircleIcon className="w-6 h-6 text-red-600 shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-slate-900">Prioritized "Key Visualizer"</h4>
-                      <p className="text-sm text-slate-600 mt-1">Moved from "nice to have" to P0 roadmap item.</p>
-                    </div>
-                  </li>
-                  <li className="flex gap-4">
-                    <CheckCircleIcon className="w-6 h-6 text-red-600 shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-slate-900">Defined Core Metrics</h4>
-                      <p className="text-sm text-slate-600 mt-1">Established standard for "Heatmap" visualization of row access.</p>
-                    </div>
-                  </li>
-                </ul>
+                <h3 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">Engineering Pivot</h3>
+                <p className="text-slate-700 leading-relaxed mb-6 text-lg font-light">
+                    The team understood where to focus their efforts. They now understood that the first thing to do was to prioritise detection, and they built those metrics into the Spanner dashboard.
+                </p>
+                <p className="text-slate-700 leading-relaxed text-lg font-light">
+                    Future plans would involve continuing to build metrics to support the user journey specified in the research report.
+                </p>
              </div>
           </div>
         </div>

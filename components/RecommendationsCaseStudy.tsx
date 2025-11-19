@@ -13,8 +13,8 @@ const Section: React.FC<{
       <div className="max-w-5xl mx-auto w-full z-10">
         {(title || subtitle) && (
           <div className="mb-16">
-             {subtitle && <span className="text-green-600 font-mono text-xs uppercase tracking-widest mb-2 block font-bold">{subtitle}</span>}
-             {title && <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">{title}</h2>}
+             {subtitle && <span className="text-green-600 font-mono text-xs uppercase tracking-widest mb-3 block font-bold">{subtitle}</span>}
+             {title && <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tighter">{title}</h2>}
           </div>
         )}
         {children}
@@ -31,7 +31,7 @@ const AdoptionChart: React.FC = () => {
     return (
       <div className="bg-white border border-slate-900 p-6 shadow-[8px_8px_0px_0px_rgba(34,197,94,1)] h-96 flex flex-col">
         <div className="flex justify-between items-center mb-6 border-b border-slate-100 pb-2">
-             <h3 className="font-mono text-sm font-bold uppercase text-slate-900">Funnel Drop-off</h3>
+             <h3 className="font-mono text-xs font-bold uppercase text-slate-900 tracking-widest">Funnel Drop-off</h3>
              <span className="font-mono text-xs text-red-500 font-bold uppercase bg-red-50 px-2 py-1">91% Loss</span>
         </div>
         <div className="flex-1 w-full">
@@ -52,7 +52,7 @@ const AdoptionChart: React.FC = () => {
             </BarChart>
             </ResponsiveContainer>
         </div>
-        <p className="text-xs font-mono text-slate-400 text-center mt-4 uppercase tracking-widest">
+        <p className="text-[10px] font-mono text-slate-400 text-center mt-4 uppercase tracking-widest">
             Figure 2.1: The Engagement Gap
         </p>
       </div>
@@ -158,8 +158,8 @@ const WorkflowJourney: React.FC = () => {
     return (
         <div className="border border-slate-900 bg-white p-8 shadow-[8px_8px_0px_0px_rgba(34,197,94,1)]">
             <div className="flex justify-between items-center mb-8 border-b border-slate-200 pb-4">
-                <h3 className="font-mono text-sm font-bold uppercase text-slate-900">Remediation Journey</h3>
-                <span className="font-mono text-xs text-slate-500">Workflow Audit</span>
+                <h3 className="font-mono text-xs font-bold uppercase text-slate-900 tracking-widest">Remediation Journey</h3>
+                <span className="font-mono text-[10px] text-slate-500">Workflow Audit</span>
             </div>
             
             <div className="flex flex-col md:flex-row justify-between gap-4 relative">
@@ -180,7 +180,7 @@ const WorkflowJourney: React.FC = () => {
 
                         {/* Label */}
                         <div className="text-center">
-                            <span className={`text-xs font-bold uppercase tracking-widest ${step.status === 'error' ? 'text-red-600' : 'text-slate-500'}`}>
+                            <span className={`text-[10px] font-bold uppercase tracking-widest ${step.status === 'error' ? 'text-red-600' : 'text-slate-500'}`}>
                                 STEP_{step.id}
                             </span>
                             <p className={`text-sm font-bold mt-1 ${step.status === 'error' ? 'text-slate-900' : 'text-slate-400'}`}>
@@ -198,7 +198,7 @@ const WorkflowJourney: React.FC = () => {
                 ))}
             </div>
             
-            <div className="mt-8 p-4 bg-slate-50 border border-slate-200 text-xs font-mono text-slate-500 flex gap-4">
+            <div className="mt-8 p-4 bg-slate-50 border border-slate-200 text-[10px] font-mono text-slate-500 flex gap-4">
                 <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-white border border-slate-900" />
                     <span>Standard Flow</span>
@@ -246,16 +246,16 @@ const RecommendationsCaseStudy: React.FC = () => {
                      <div className="md:col-span-7 flex flex-col gap-8">
                         <div>
                             <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">The Domain</h3>
-                            <p className="text-slate-600 leading-relaxed text-lg">
+                            <p className="text-slate-600 leading-relaxed text-lg font-light">
                                 This project lies in the domain of recommendations for managed databases. While Managed Databases take care of some things for users (like patching), there are many actions that users still need to take (like scaling).
                             </p>
-                            <p className="text-slate-600 leading-relaxed mt-4 text-lg">
+                            <p className="text-slate-600 leading-relaxed mt-4 text-lg font-light">
                                 The user of a managed database might not be familiar with it, and hence the database provides "recommendations" on various topics like security, performance, and so on.
                             </p>
                         </div>
                         <div className="border-l-4 border-green-500 pl-6 py-2 bg-green-50/50">
-                             <h4 className="font-bold text-green-700 mb-2 text-sm uppercase tracking-tight">The Project</h4>
-                             <p className="text-slate-800 leading-relaxed italic">
+                             <h4 className="font-bold text-green-700 mb-2 text-xs uppercase tracking-widest">The Project</h4>
+                             <p className="text-slate-800 leading-relaxed italic text-lg">
                                 "The 'recommendations' feature - designed to proactively surface contextual issues and suggest fixes - was suffering from critically low adoption despite its strong intended value."
                              </p>
                         </div>
@@ -269,7 +269,7 @@ const RecommendationsCaseStudy: React.FC = () => {
                                 </span>
                             </div>
                             <div className="mb-8">
-                                <h4 className="text-slate-900 font-bold text-lg mb-2">Increase Storage Capacity</h4>
+                                <h4 className="text-slate-900 font-bold text-lg mb-2 tracking-tight">Increase Storage Capacity</h4>
                                 <p className="text-slate-600 text-sm leading-relaxed">
                                     You are almost out of storage on Instance A. Current usage is at 94%.
                                 </p>
@@ -292,11 +292,11 @@ const RecommendationsCaseStudy: React.FC = () => {
             <Section id="catalyst" title="The Data Gap" subtitle="02 / Catalyst">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6">Massive Underuse</h3>
-                        <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+                        <h3 className="text-2xl font-bold text-slate-900 mb-6 tracking-tight">Massive Underuse</h3>
+                        <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
                             Analytics confirmed the feature's failure to launch. We observed a stark contrast: the system was successfully generating thousands of valid recommendations, but user interaction (views and clicks) was effectively non-existent.
                         </p>
-                        <div className="p-4 bg-red-50 border border-red-200 text-red-800 font-mono text-sm">
+                        <div className="p-4 bg-red-50 border border-red-200 text-red-800 font-mono text-xs">
                             ALERT: 10x discrepancy between GENERATED vs VIEWED events.
                         </div>
                     </div>
@@ -307,16 +307,16 @@ const RecommendationsCaseStudy: React.FC = () => {
             <Section id="action" title="The Investigation" subtitle="03 / Methodology">
                  <div className="grid md:grid-cols-2 gap-12 items-center">
                      <div className="max-w-3xl">
-                        <p className="text-xl text-slate-800 leading-relaxed mb-12 font-light">
+                        <p className="text-xl text-slate-800 leading-relaxed mb-12 font-light tracking-tight">
                             I conducted qualitative research, asking a wide range of users to show me their screens and talk about how they used (or didn't use) recommendations.
                         </p>
-                        <p className="text-slate-600 leading-relaxed">
+                        <p className="text-slate-600 leading-relaxed text-lg font-light">
                             Observing the "Wild" habitat of the user revealed behaviors that telemetry missed. Users would navigate to their instance lists, hover over indicators, but fail to engage with the intended remediation paths.
                         </p>
                      </div>
                      <div className="relative">
                          <VideoCallSimulation />
-                         <p className="text-xs font-mono text-slate-400 text-center mt-4 uppercase tracking-widest">
+                         <p className="text-[10px] font-mono text-slate-400 text-center mt-4 uppercase tracking-widest">
                             Fig 3.1: Remote Observation Session
                          </p>
                      </div>
@@ -327,13 +327,13 @@ const RecommendationsCaseStudy: React.FC = () => {
                  <div className="grid lg:grid-cols-12 gap-12">
                     <div className="lg:col-span-5">
                         <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">False Affordances</h3>
-                        <p className="text-slate-600 leading-relaxed mb-6">
+                        <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
                             The research validated the feature's core utility but identified significant UX hurdles. The primary issue was presentation.
                         </p>
-                        <p className="text-slate-600 leading-relaxed mb-6 font-bold">
+                        <p className="text-slate-600 leading-relaxed mb-6 font-medium">
                             The way issues were being presented to users made it not obvious that they could be clicked. This lack of visual cues acted as a barrier to entry.
                         </p>
-                        <p className="text-slate-600 leading-relaxed">
+                        <p className="text-slate-600 leading-relaxed text-lg font-light">
                             Furthermore, the study mapped the entire remediation journey once an issue was identified. While we won't detail the specific operational steps here, the analysis revealed critical friction points downstream where users were blocked or forced into manual workarounds.
                         </p>
                     </div>
@@ -345,13 +345,13 @@ const RecommendationsCaseStudy: React.FC = () => {
 
             <Section id="impact" title="The Impact" subtitle="05 / Resolution">
                  <div className="bg-green-50 border border-green-200 p-12 shadow-[8px_8px_0px_0px_rgba(34,197,94,0.4)]">
-                     <h3 className="text-3xl font-bold mb-6 text-green-800">Comprehensive findings to make recommendations more effective</h3>
-                     <p className="text-slate-700 text-lg leading-relaxed max-w-3xl mb-8">
+                     <h3 className="text-3xl font-bold mb-6 text-green-800 tracking-tight">Comprehensive findings to make recommendations more effective</h3>
+                     <p className="text-slate-700 text-lg font-light leading-relaxed max-w-3xl mb-8">
                          These findings were absorbed by the team over time. It started with small changes to how issues were stylised to indicate interactivity, and ended with larger changes to the content of recommendations to ensure they were contextually relevant to the user's workflow.
                      </p>
                      <div className="flex gap-4 flex-wrap">
-                         <span className="font-mono text-xs bg-white border border-green-300 px-3 py-1 text-green-700 uppercase font-bold">UI Overhaul</span>
-                         <span className="font-mono text-xs bg-white border border-green-300 px-3 py-1 text-green-700 uppercase font-bold">Content Strategy</span>
+                         <span className="font-mono text-[10px] bg-white border border-green-300 px-3 py-1 text-green-700 uppercase font-bold tracking-wide">UI Overhaul</span>
+                         <span className="font-mono text-[10px] bg-white border border-green-300 px-3 py-1 text-green-700 uppercase font-bold tracking-wide">Content Strategy</span>
                      </div>
                  </div>
             </Section>
