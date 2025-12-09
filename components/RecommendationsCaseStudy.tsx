@@ -1,6 +1,8 @@
 
+
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import PasswordProtect from './PasswordProtect';
 
 const Section: React.FC<{
     id: string;
@@ -214,148 +216,150 @@ const WorkflowJourney: React.FC = () => {
 
 const RecommendationsCaseStudy: React.FC = () => {
     return (
-        <div className="bg-white">
-             <Section id="hero" className="items-start pt-40 relative overflow-hidden">
-                {/* Dan Flavin Installation: "The Green Frame" */}
-                <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
-                    {/* Top Bar */}
-                    <div className="absolute top-0 left-0 w-full h-4 bg-white shadow-[0_0_20px_rgba(34,197,94,1),0_0_80px_rgba(34,197,94,0.6)]"></div>
-                    {/* Bottom Bar */}
-                    <div className="absolute bottom-0 left-0 w-full h-4 bg-white shadow-[0_0_20px_rgba(34,197,94,1),0_0_80px_rgba(34,197,94,0.6)]"></div>
-                    {/* Left Bar */}
-                    <div className="absolute top-0 left-0 h-full w-4 bg-white shadow-[0_0_20px_rgba(34,197,94,1),0_0_80px_rgba(34,197,94,0.6)]"></div>
-                     {/* Dissonant Red Center */}
-                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-2 bg-white shadow-[0_0_20px_rgba(239,68,68,1),0_0_80px_rgba(239,68,68,1)] rotate-45"></div>
-                </div>
-
-                <div className="relative z-10">
-                    <div className="inline-block mb-6 px-3 py-1 border border-slate-900 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(34,197,94,1)]">
-                        Affordance Audit
+        <PasswordProtect correctPassword="Unlock123">
+            <div className="bg-white">
+                <Section id="hero" className="items-start pt-40 relative overflow-hidden">
+                    {/* Dan Flavin Installation: "The Green Frame" */}
+                    <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
+                        {/* Top Bar */}
+                        <div className="absolute top-0 left-0 w-full h-4 bg-white shadow-[0_0_20px_rgba(34,197,94,1),0_0_80px_rgba(34,197,94,0.6)]"></div>
+                        {/* Bottom Bar */}
+                        <div className="absolute bottom-0 left-0 w-full h-4 bg-white shadow-[0_0_20px_rgba(34,197,94,1),0_0_80px_rgba(34,197,94,0.6)]"></div>
+                        {/* Left Bar */}
+                        <div className="absolute top-0 left-0 h-full w-4 bg-white shadow-[0_0_20px_rgba(34,197,94,1),0_0_80px_rgba(34,197,94,0.6)]"></div>
+                        {/* Dissonant Red Center */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-2 bg-white shadow-[0_0_20px_rgba(239,68,68,1),0_0_80px_rgba(239,68,68,1)] rotate-45"></div>
                     </div>
-                    <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
-                        DEAD<br/>CLICKS
-                    </h1>
-                    <p className="text-xl md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed mb-12 bg-white/80 backdrop-blur-sm p-4 border-l-4 border-green-500">
-                        Diagnosing the failure to launch of high-value proactive features.
-                    </p>
-                </div>
-            </Section>
 
-            <Section id="problem" title="The Disconnect" subtitle="01 / Context">
-                <div className="grid md:grid-cols-12 gap-12">
-                     <div className="md:col-span-7 flex flex-col gap-8">
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">The Domain</h3>
-                            <p className="text-slate-600 leading-relaxed text-lg font-light">
-                                This project lies in the domain of recommendations for managed databases. While Managed Databases take care of some things for users (like patching), there are many actions that users still need to take (like scaling).
-                            </p>
-                            <p className="text-slate-600 leading-relaxed mt-4 text-lg font-light">
-                                The user of a managed database might not be familiar with it, and hence the database provides "recommendations" on various topics like security, performance, and so on.
-                            </p>
+                    <div className="relative z-10">
+                        <div className="inline-block mb-6 px-3 py-1 border border-slate-900 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(34,197,94,1)]">
+                            Affordance Audit
                         </div>
-                        <div className="border-l-4 border-green-500 pl-6 py-2 bg-green-50/50">
-                             <h4 className="font-bold text-green-700 mb-2 text-xs uppercase tracking-widest">The Project</h4>
-                             <p className="text-slate-800 leading-relaxed italic text-lg">
-                                "The 'recommendations' feature - designed to proactively surface contextual issues and suggest fixes - was suffering from critically low adoption despite its strong intended value."
-                             </p>
-                        </div>
-                     </div>
-                     <div className="md:col-span-5 flex items-center justify-center bg-slate-50 border border-slate-200 p-8">
-                         <div className="w-full max-w-sm bg-white border border-slate-300 shadow-sm p-6 relative">
-                            <div className="flex justify-between items-start mb-6">
-                                <span className="font-mono text-[10px] text-slate-400 uppercase">ID: REC-2024</span>
-                                <span className="bg-amber-100 text-amber-700 border border-amber-200 text-[10px] font-bold px-2 py-1 uppercase tracking-wide rounded-sm">
-                                    High Severity
-                                </span>
-                            </div>
-                            <div className="mb-8">
-                                <h4 className="text-slate-900 font-bold text-lg mb-2 tracking-tight">Increase Storage Capacity</h4>
-                                <p className="text-slate-600 text-sm leading-relaxed">
-                                    You are almost out of storage on Instance A. Current usage is at 94%.
+                        <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
+                            DEAD<br/>CLICKS
+                        </h1>
+                        <p className="text-xl md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed mb-12 bg-white/80 backdrop-blur-sm p-4 border-l-4 border-green-500">
+                            Diagnosing the failure to launch of high-value proactive features.
+                        </p>
+                    </div>
+                </Section>
+
+                <Section id="problem" title="The Disconnect" subtitle="01 / Context">
+                    <div className="grid md:grid-cols-12 gap-12">
+                        <div className="md:col-span-7 flex flex-col gap-8">
+                            <div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">The Domain</h3>
+                                <p className="text-slate-600 leading-relaxed text-lg font-light">
+                                    This project lies in the domain of recommendations for managed databases. While Managed Databases take care of some things for users (like patching), there are many actions that users still need to take (like scaling).
+                                </p>
+                                <p className="text-slate-600 leading-relaxed mt-4 text-lg font-light">
+                                    The user of a managed database might not be familiar with it, and hence the database provides "recommendations" on various topics like security, performance, and so on.
                                 </p>
                             </div>
-                            <div className="border-t border-slate-100 pt-4 flex gap-8">
-                                <div>
-                                    <span className="block text-[8px] font-mono text-slate-400 uppercase mb-1">Category</span>
-                                    <span className="text-xs font-bold text-slate-700">Provisioning</span>
+                            <div className="border-l-4 border-green-500 pl-6 py-2 bg-green-50/50">
+                                <h4 className="font-bold text-green-700 mb-2 text-xs uppercase tracking-widest">The Project</h4>
+                                <p className="text-slate-800 leading-relaxed italic text-lg">
+                                    "The 'recommendations' feature - designed to proactively surface contextual issues and suggest fixes - was suffering from critically low adoption despite its strong intended value."
+                                </p>
+                            </div>
+                        </div>
+                        <div className="md:col-span-5 flex items-center justify-center bg-slate-50 border border-slate-200 p-8">
+                            <div className="w-full max-w-sm bg-white border border-slate-300 shadow-sm p-6 relative">
+                                <div className="flex justify-between items-start mb-6">
+                                    <span className="font-mono text-[10px] text-slate-400 uppercase">ID: REC-2024</span>
+                                    <span className="bg-amber-100 text-amber-700 border border-amber-200 text-[10px] font-bold px-2 py-1 uppercase tracking-wide rounded-sm">
+                                        High Severity
+                                    </span>
                                 </div>
-                                <div>
-                                    <span className="block text-[8px] font-mono text-slate-400 uppercase mb-1">Impact</span>
-                                    <span className="text-xs font-bold text-slate-700">Availability</span>
+                                <div className="mb-8">
+                                    <h4 className="text-slate-900 font-bold text-lg mb-2 tracking-tight">Increase Storage Capacity</h4>
+                                    <p className="text-slate-600 text-sm leading-relaxed">
+                                        You are almost out of storage on Instance A. Current usage is at 94%.
+                                    </p>
+                                </div>
+                                <div className="border-t border-slate-100 pt-4 flex gap-8">
+                                    <div>
+                                        <span className="block text-[8px] font-mono text-slate-400 uppercase mb-1">Category</span>
+                                        <span className="text-xs font-bold text-slate-700">Provisioning</span>
+                                    </div>
+                                    <div>
+                                        <span className="block text-[8px] font-mono text-slate-400 uppercase mb-1">Impact</span>
+                                        <span className="text-xs font-bold text-slate-700">Availability</span>
+                                    </div>
                                 </div>
                             </div>
-                         </div>
-                     </div>
-                </div>
-            </Section>
-
-            <Section id="catalyst" title="The Data Gap" subtitle="02 / Catalyst">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6 tracking-tight">Massive Underuse</h3>
-                        <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
-                            Analytics confirmed the feature's failure to launch. We observed a stark contrast: the system was successfully generating thousands of valid recommendations, but user interaction (views and clicks) was effectively non-existent.
-                        </p>
-                        <div className="p-4 bg-red-50 border border-red-200 text-red-800 font-mono text-xs">
-                            ALERT: 10x discrepancy between GENERATED vs VIEWED events.
                         </div>
                     </div>
-                    <AdoptionChart />
-                </div>
-            </Section>
+                </Section>
 
-            <Section id="action" title="The Investigation" subtitle="03 / Methodology">
-                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                     <div className="max-w-3xl">
-                        <p className="text-xl text-slate-800 leading-relaxed mb-12 font-light tracking-tight">
-                            I conducted qualitative research, asking a wide range of users to show me their screens and talk about how they used (or didn't use) recommendations.
-                        </p>
-                        <p className="text-slate-600 leading-relaxed text-lg font-light">
-                            Observing the "Wild" habitat of the user revealed behaviors that telemetry missed. Users would navigate to their instance lists, hover over indicators, but fail to engage with the intended remediation paths.
-                        </p>
-                     </div>
-                     <div className="relative">
-                         <VideoCallSimulation />
-                         <p className="text-[10px] font-mono text-slate-400 text-center mt-4 uppercase tracking-widest">
-                            Fig 3.1: Remote Observation Session
-                         </p>
-                     </div>
-                 </div>
-            </Section>
-
-            <Section id="outcome" title="The Findings" subtitle="04 / Evidence">
-                 <div className="grid lg:grid-cols-12 gap-12">
-                    <div className="lg:col-span-5">
-                        <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">False Affordances</h3>
-                        <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
-                            The research validated the feature's core utility but identified significant UX hurdles. The primary issue was presentation.
-                        </p>
-                        <p className="text-slate-600 leading-relaxed mb-6 font-medium">
-                            The way issues were being presented to users made it not obvious that they could be clicked. This lack of visual cues acted as a barrier to entry.
-                        </p>
-                        <p className="text-slate-600 leading-relaxed text-lg font-light">
-                            Furthermore, the study mapped the entire remediation journey once an issue was identified. While we won't detail the specific operational steps here, the analysis revealed critical friction points downstream where users were blocked or forced into manual workarounds.
-                        </p>
+                <Section id="catalyst" title="The Data Gap" subtitle="02 / Catalyst">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 className="text-2xl font-bold text-slate-900 mb-6 tracking-tight">Massive Underuse</h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
+                                Analytics confirmed the feature's failure to launch. We observed a stark contrast: the system was successfully generating thousands of valid recommendations, but user interaction (views and clicks) was effectively non-existent.
+                            </p>
+                            <div className="p-4 bg-red-50 border border-red-200 text-red-800 font-mono text-xs">
+                                ALERT: 10x discrepancy between GENERATED vs VIEWED events.
+                            </div>
+                        </div>
+                        <AdoptionChart />
                     </div>
-                    <div className="lg:col-span-7">
-                        <WorkflowJourney />
-                    </div>
-                 </div>
-            </Section>
+                </Section>
 
-            <Section id="impact" title="The Impact" subtitle="05 / Resolution">
-                 <div className="bg-green-50 border border-green-200 p-12 shadow-[8px_8px_0px_0px_rgba(34,197,94,0.4)]">
-                     <h3 className="text-3xl font-bold mb-6 text-green-800 tracking-tight">Comprehensive findings to make recommendations more effective</h3>
-                     <p className="text-slate-700 text-lg font-light leading-relaxed max-w-3xl mb-8">
-                         These findings were absorbed by the team over time. It started with small changes to how issues were stylised to indicate interactivity, and ended with larger changes to the content of recommendations to ensure they were contextually relevant to the user's workflow.
-                     </p>
-                     <div className="flex gap-4 flex-wrap">
-                         <span className="font-mono text-[10px] bg-white border border-green-300 px-3 py-1 text-green-700 uppercase font-bold tracking-wide">UI Overhaul</span>
-                         <span className="font-mono text-[10px] bg-white border border-green-300 px-3 py-1 text-green-700 uppercase font-bold tracking-wide">Content Strategy</span>
-                     </div>
-                 </div>
-            </Section>
-        </div>
+                <Section id="action" title="The Investigation" subtitle="03 / Methodology">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="max-w-3xl">
+                            <p className="text-xl text-slate-800 leading-relaxed mb-12 font-light tracking-tight">
+                                I conducted qualitative research, asking a wide range of users to show me their screens and talk about how they used (or didn't use) recommendations.
+                            </p>
+                            <p className="text-slate-600 leading-relaxed text-lg font-light">
+                                Observing the "Wild" habitat of the user revealed behaviors that telemetry missed. Users would navigate to their instance lists, hover over indicators, but fail to engage with the intended remediation paths.
+                            </p>
+                        </div>
+                        <div className="relative">
+                            <VideoCallSimulation />
+                            <p className="text-[10px] font-mono text-slate-400 text-center mt-4 uppercase tracking-widest">
+                                Fig 3.1: Remote Observation Session
+                            </p>
+                        </div>
+                    </div>
+                </Section>
+
+                <Section id="outcome" title="The Findings" subtitle="04 / Evidence">
+                    <div className="grid lg:grid-cols-12 gap-12">
+                        <div className="lg:col-span-5">
+                            <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">False Affordances</h3>
+                            <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
+                                The research validated the feature's core utility but identified significant UX hurdles. The primary issue was presentation.
+                            </p>
+                            <p className="text-slate-600 leading-relaxed mb-6 font-medium">
+                                The way issues were being presented to users made it not obvious that they could be clicked. This lack of visual cues acted as a barrier to entry.
+                            </p>
+                            <p className="text-slate-600 leading-relaxed text-lg font-light">
+                                Furthermore, the study mapped the entire remediation journey once an issue was identified. While we won't detail the specific operational steps here, the analysis revealed critical friction points downstream where users were blocked or forced into manual workarounds.
+                            </p>
+                        </div>
+                        <div className="lg:col-span-7">
+                            <WorkflowJourney />
+                        </div>
+                    </div>
+                </Section>
+
+                <Section id="impact" title="The Impact" subtitle="05 / Resolution">
+                    <div className="bg-green-50 border border-green-200 p-12 shadow-[8px_8px_0px_0px_rgba(34,197,94,0.4)]">
+                        <h3 className="text-3xl font-bold mb-6 text-green-800 tracking-tight">Comprehensive findings to make recommendations more effective</h3>
+                        <p className="text-slate-700 text-lg font-light leading-relaxed max-w-3xl mb-8">
+                            These findings were absorbed by the team over time. It started with small changes to how issues were stylised to indicate interactivity, and ended with larger changes to the content of recommendations to ensure they were contextually relevant to the user's workflow.
+                        </p>
+                        <div className="flex gap-4 flex-wrap">
+                            <span className="font-mono text-[10px] bg-white border border-green-300 px-3 py-1 text-green-700 uppercase font-bold tracking-wide">UI Overhaul</span>
+                            <span className="font-mono text-[10px] bg-white border border-green-300 px-3 py-1 text-green-700 uppercase font-bold tracking-wide">Content Strategy</span>
+                        </div>
+                    </div>
+                </Section>
+            </div>
+        </PasswordProtect>
     );
 };
 
