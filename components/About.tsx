@@ -182,10 +182,10 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
             <h2 className="text-sm font-bold font-mono uppercase text-slate-400 mb-12 tracking-widest text-center">Operational History</h2>
             <div>
               <ExperienceItem 
-                role="UX Researcher"
+                role="UX Research Lead"
                 company="Google"
                 period="Mar 2022 - Present"
-                description="Lead UXR for Cloud Databases & Observability. Driving strategy for AI-powered troubleshooting and critical workload management."
+                description="Lead UXR for Cloud Databases Observability. Driving strategy for AI-powered troubleshooting and critical workload management."
                 tags={['Enterprise', 'Cloud', 'AI', 'Observability']}
               />
               <ExperienceItem 
