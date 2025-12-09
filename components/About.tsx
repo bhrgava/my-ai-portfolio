@@ -132,7 +132,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                           <div>
                               <span className="text-[10px] font-mono text-blue-600 uppercase tracking-widest block mb-2 font-bold">Featured Case Study</span>
                               <span className="text-4xl font-bold text-slate-900">AI Troubleshooting</span>
-                              <p className="text-slate-500 mt-4 font-light leading-relaxed">Defining interaction models for AI in high-stakes contexts. This foundational research guided the design of Gemini in Databases by validating a structured, non-chat interface to build user trust and accelerate time-to-market.</p>
+                              <p className="text-slate-500 mt-4 font-light leading-relaxed">Defining interaction models for AI in high-stakes contexts. This foundational research guided the design of AI assisted troubleshooting by validating a structured, non-chat interface to build user trust and accelerate time-to-market.</p>
                               <div className="flex items-center gap-2 mt-8 text-blue-600 text-xs font-mono uppercase tracking-widest font-bold">
                                   <span>View Case</span>
                                   <ArrowRightIcon className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
