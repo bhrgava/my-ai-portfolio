@@ -128,6 +128,13 @@ export const LinkIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
+export const ArrowRightIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  );
+
 export const ResearcherCrestIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none" stroke="currentColor" className={className}>
     <path d="M10 10 H90 V40 C90 70 50 110 50 110 C50 110 10 70 10 40 V10 Z" strokeWidth="1.5" className="text-slate-900"/>

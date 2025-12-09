@@ -3,11 +3,10 @@ import { MailIcon } from './Icons';
 
 interface PasswordProtectProps {
   correctPassword: string;
-  children: React.ReactNode;
+  onSuccess: () => void;
 }
 
-const PasswordProtect: React.FC<PasswordProtectProps> = ({ correctPassword, children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const PasswordProtect: React.FC<PasswordProtectProps> = ({ correctPassword, onSuccess }) => {
   const [passwordInput, setPasswordInput] = useState('');
   const [error, setError] = useState('');
   const [view, setView] = useState<'password' | 'request' | 'sent'>('password');
@@ -16,7 +15,7 @@ const PasswordProtect: React.FC<PasswordProtectProps> = ({ correctPassword, chil
   const handlePasswordSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (passwordInput === correctPassword) {
-      setIsAuthenticated(true);
+      onSuccess();
       setError('');
     } else {
       setError('Incorrect Password. Access Denied.');
@@ -33,12 +32,8 @@ const PasswordProtect: React.FC<PasswordProtectProps> = ({ correctPassword, chil
     setView('sent');
   };
 
-  if (isAuthenticated) {
-    return <>{children}</>;
-  }
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-6">
+    <div className="min-h-screen flex items-center justify-center bg-white px-6 py-40">
       <div className="max-w-md w-full">
         <div className="bg-white border border-slate-900 p-8 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] transition-all">
           

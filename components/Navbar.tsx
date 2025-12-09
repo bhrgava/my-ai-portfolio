@@ -10,11 +10,12 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { id: 'about', label: 'About', color: 'text-blue-600', bg: 'bg-blue-600' },
-    { id: 'spanner', label: 'Spanner Hotspots', color: 'text-red-600', bg: 'bg-red-600' },
-    { id: 'ai', label: 'AI Troubleshooting', color: 'text-cyan-600', bg: 'bg-cyan-600' },
-    { id: 'recommendations', label: 'Dead Clicks', color: 'text-green-500', bg: 'bg-green-500' },
-    { id: 'tier1', label: 'Advanced Observability', color: 'text-amber-500', bg: 'bg-amber-500' },
+    { id: 'about', label: 'About' },
+    { id: 'spanner', label: 'Spanner Hotspots' },
+    { id: 'ai', label: 'AI Troubleshooting' },
+    { id: 'recommendations', label: 'Dead Clicks' },
+    { id: 'tier1', label: 'Adv. Observability' },
+    { id: 'time', label: 'Time Sensitivity'}
   ];
 
   const handleNav = (id: string) => {
@@ -23,22 +24,16 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-      {/* Spectrum Bar */}
-      <div className="absolute top-0 left-0 w-full h-1 flex">
-        <div className="flex-1 bg-blue-600" />
-        <div className="flex-1 bg-red-600" />
-        <div className="flex-1 bg-cyan-600" />
-        <div className="flex-1 bg-green-500" />
-        <div className="flex-1 bg-amber-500" />
-      </div>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80">
+      {/* Accent Bar */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-pink-500" />
 
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div 
           className="flex items-center gap-2 cursor-pointer group" 
           onClick={() => handleNav('about')}
         >
-          {/* Replaced text with SVG Image */}
+          {/* SVG Logo for light theme */}
           <img 
             src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24'%3E%3Ctext x='0' y='20' font-family='sans-serif' font-weight='800' font-size='18' letter-spacing='-0.02em' fill='%230f172a' text-transform='uppercase'%3EARPIT BHARGAVA%3C/text%3E%3C/svg%3E" 
             alt="Logo" 
@@ -52,20 +47,20 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
             <button
               key={item.id}
               onClick={() => handleNav(item.id)}
-              className={`text-xs font-bold uppercase tracking-widest transition-all relative py-2 group
-                ${activePage === item.id ? item.color : 'text-slate-400 hover:text-slate-900'}
+              className={`text-xs font-bold uppercase tracking-widest transition-colors relative py-2 group
+                ${activePage === item.id ? 'text-blue-600' : 'text-slate-500 hover:text-slate-900'}
               `}
             >
               {item.label}
-              {/* Color Line */}
-              <span className={`absolute bottom-0 left-0 w-full h-[2px] ${item.bg} transform transition-transform duration-300 origin-left ${activePage === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+              {/* Underline */}
+              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform transition-transform duration-300 origin-left ${activePage === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
             </button>
           ))}
         </div>
 
         {/* Mobile Menu Button */}
         <button 
-          className="lg:hidden p-2 text-slate-900"
+          className="lg:hidden p-2 text-slate-800"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <CloseIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
@@ -74,15 +69,15 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
 
       {/* Mobile Nav Overlay */}
       {isOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 p-4 flex flex-col shadow-xl">
+        <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-200 p-4 flex flex-col shadow-xl">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNav(item.id)}
-              className={`text-left text-lg font-bold uppercase p-4 border-b border-slate-50 last:border-0 transition-colors ${
+              className={`text-left text-lg font-bold uppercase p-4 border-b border-slate-100 last:border-0 transition-colors ${
                 activePage === item.id
-                  ? `${item.color} pl-6 border-l-4 ${item.bg.replace('bg-', 'border-')}`
-                  : 'hover:bg-slate-50 text-slate-600'
+                  ? `text-blue-600 pl-6 border-l-4 border-blue-600`
+                  : 'hover:bg-slate-50 text-slate-800'
               }`}
             >
               {item.label}
