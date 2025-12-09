@@ -5,7 +5,6 @@ import SpannerCaseStudy from './components/SpannerCaseStudy';
 import AICaseStudy from './components/AICaseStudy';
 import RecommendationsCaseStudy from './components/RecommendationsCaseStudy';
 import Tier1WorkloadsCaseStudy from './components/Tier1WorkloadsCaseStudy';
-import WaitEventsCaseStudy from './components/WaitEventsCaseStudy';
 import PasswordProtect from './components/PasswordProtect';
 
 const App: React.FC = () => {
@@ -26,10 +25,9 @@ const App: React.FC = () => {
     'ai': <AICaseStudy />,
     'recommendations': <RecommendationsCaseStudy />,
     'tier1': <Tier1WorkloadsCaseStudy />,
-    'time': <WaitEventsCaseStudy />,
   };
 
-  const isCaseStudyPage = activePage !== 'about';
+  const isCaseStudyPage = activePage !== 'about' && caseStudyComponents[activePage];
 
   const renderContent = () => {
     if (isCaseStudyPage && !isAuthenticated) {

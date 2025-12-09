@@ -11,11 +11,10 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
 
   const navItems = [
     { id: 'about', label: 'About' },
-    { id: 'spanner', label: 'Spanner Hotspots' },
     { id: 'ai', label: 'AI Troubleshooting' },
+    { id: 'spanner', label: 'Spanner Hotspots' },
     { id: 'recommendations', label: 'Dead Clicks' },
     { id: 'tier1', label: 'Adv. Observability' },
-    { id: 'time', label: 'Time Sensitivity'}
   ];
 
   const handleNav = (id: string) => {
