@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
-import { CheckCircleIcon, LinkIcon } from './Icons';
+import React from 'react';
+import { CheckCircleIcon, UsersIcon, TargetIcon, XCircleIcon } from './Icons';
 
 const Section: React.FC<{
     id: string;
@@ -22,79 +22,6 @@ const Section: React.FC<{
     </section>
   );
 
-const AIConceptVisualizer: React.FC = () => {
-    const [activeStep, setActiveStep] = useState(0);
-    const totalSteps = 4; 
-
-    // Concepts data
-    const concepts = [
-        {
-            id: 1,
-            name: "Concept A: Chat",
-            steps: ["Step 1", "Step 2", "Step 3", "Result"],
-            scoreLabel: "?"
-        },
-        {
-            id: 2,
-            name: "Concept B: Direct",
-            steps: ["Result"],
-            scoreLabel: "?"
-        },
-        {
-            id: 3,
-            name: "Concept C: Modal",
-            steps: ["Context", "Analysis", "Fix"],
-            scoreLabel: "?"
-        }
-    ];
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveStep((prev) => (prev + 1) % (totalSteps + 2));
-        }, 1200);
-        return () => clearInterval(interval);
-    }, []);
-
-    return (
-        <div className="bg-white border border-slate-900 p-8 w-full shadow-[8px_8px_0px_0px_rgba(8,145,178,1)]">
-            <div className="flex justify-between items-center mb-8 border-b border-slate-200 pb-4">
-                <h3 className="font-mono text-xs font-bold uppercase tracking-widest">Comparative Evaluation</h3>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-                {concepts.map((concept) => (
-                    <div key={concept.id} className="flex flex-col">
-                         <div className="text-[10px] font-bold uppercase mb-4 text-slate-400 tracking-widest">{concept.name}</div>
-                         
-                         {/* Wireframe Box */}
-                         <div className={`flex-1 border-2 p-4 min-h-[200px] relative flex flex-col gap-2 ${concept.name.includes('Modal') ? 'border-cyan-600 bg-cyan-50' : 'border-slate-200 bg-slate-50'}`}>
-                            
-                            {/* Steps Animation */}
-                            {concept.steps.map((step, idx) => (
-                                <div 
-                                    key={idx}
-                                    className={`h-8 border border-slate-300 bg-white flex items-center px-2 text-xs font-mono transition-all duration-300 ${
-                                        activeStep > idx ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-                                    }`}
-                                >
-                                    {step}
-                                </div>
-                            ))}
-
-                            {/* Score */}
-                            <div className={`mt-auto pt-4 border-t border-slate-200 flex justify-between items-end transition-opacity duration-500 ${activeStep >= totalSteps ? 'opacity-100' : 'opacity-0'}`}>
-                                <span className="text-[10px] font-mono uppercase">Total Helpfulness Score</span>
-                                <span className={`text-xl font-bold text-slate-900`}>
-                                    {concept.scoreLabel}
-                                </span>
-                            </div>
-                         </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-}
 
 const AICaseStudy: React.FC = () => {
     return (
@@ -114,85 +41,55 @@ const AICaseStudy: React.FC = () => {
 
                 <div className="relative z-10">
                     <div className="inline-block mb-6 px-3 py-1 border border-slate-900 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(8,145,178,1)]">
-                        Evaluative Research
+                        Strategic Definition
                     </div>
-                    <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
-                        AI<br/>PARADIGMS
+                    <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
+                        AI-DRIVEN<br/>TROUBLESHOOTING
                     </h1>
                     <p className="text-xl text-slate-600 max-w-2xl mb-12 bg-white/80 backdrop-blur-sm p-4 border-l-4 border-cyan-500 font-light leading-relaxed">
-                        Chatbot or Tool? Defining the interaction model for AI in observability.
+                        Defining the interaction model for AI in a high-stakes enterprise context.
                     </p>
                 </div>
             </Section>
 
-            <Section id="problem" title="The Context" subtitle="01 / Background">
+            <Section id="problem" title="The Strategic Problem" subtitle="01 / The Challenge">
                 <div className="grid lg:grid-cols-12 gap-12">
-                    {/* Text Content - Spans 6 cols now for better balance */}
-                    <div className="lg:col-span-6 flex flex-col gap-12">
-                        
-                        {/* 1. The Operational Reality (Combined) */}
+                    <div className="lg:col-span-6 flex flex-col gap-8">
                         <div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">1. The Operational Reality</h3>
-                            <p className="text-slate-600 leading-relaxed mb-4 text-lg font-light">
-                                Managed databases are the silent infrastructure powering modern applications. When they experience latency or outages, the impact is immediate and financial.
-                            </p>
                             <p className="text-slate-600 leading-relaxed text-lg font-light">
-                                "Troubleshooting" in this context is not a casual exploration—it is a high-pressure, time-critical race to identify root causes and restore service.
+                                The product team faced a crucial, high-stakes strategic decision: How should we leverage AI to simplify complex database troubleshooting for enterprise users? While we knew the core user pain points, the optimal interaction model and interface to deliver the solution and build user trust remained <span className="font-bold text-cyan-700 bg-cyan-50 px-1">completely ambiguous.</span>
                             </p>
                         </div>
-
-                         {/* 2. The Hypothesis */}
-                         <div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">2. The AI Hypothesis</h3>
-                            <p className="text-slate-600 leading-relaxed text-lg font-light">
-                                In 2024, the product team faced a crucial strategic decision: how to leverage AI to simplify database troubleshooting. While key user pain points were known, the optimal interface (e.g., chat vs. modal) and interaction style remained undefined.
-                            </p>
+                         <div className="border-l-4 border-cyan-500 pl-6 py-2 bg-cyan-50/50">
+                             <h4 className="font-bold text-cyan-700 mb-2 text-xs uppercase tracking-widest">Proactive Research</h4>
+                             <p className="text-slate-800 leading-relaxed italic text-lg">
+                                "This research was initiated proactively to prepare the organization for an inevitable future strategic question, focusing on the ideal interface to manage user trust in AI."
+                             </p>
                         </div>
                     </div>
-
-                    {/* Visuals - Spans 6 cols */}
-                    <div className="lg:col-span-6 flex flex-col justify-center items-center gap-8 pt-8 lg:pt-0">
-                         {/* Sizing Wrapper */}
+                    <div className="lg:col-span-6 flex items-center justify-center">
                          <div className="flex gap-6 w-full max-w-lg">
-                             {/* Wireframe 1: Side Panel Chat */}
                              <div className="flex-1 flex flex-col gap-2">
                                  <div className="w-full aspect-square border-2 border-slate-900 bg-slate-50 relative flex overflow-hidden shadow-[4px_4px_0px_0px_rgba(8,145,178,0.2)]">
-                                     {/* Main Content Area */}
                                      <div className="w-2/3 h-full p-2 space-y-2">
-                                         <div className="w-full h-2 bg-slate-300"></div>
-                                         <div className="w-3/4 h-2 bg-slate-300"></div>
-                                         <div className="w-1/2 h-2 bg-slate-300"></div>
-                                         <div className="w-full h-2 bg-slate-300 mt-4"></div>
-                                         <div className="w-2/3 h-2 bg-slate-300"></div>
+                                         <div className="w-full h-2 bg-slate-300"></div><div className="w-3/4 h-2 bg-slate-300"></div>
                                      </div>
-                                     {/* Side Panel */}
                                      <div className="w-1/3 h-full border-l-2 border-slate-900 bg-white flex flex-col justify-end p-2 gap-2">
-                                         <div className="w-full h-auto p-1 border border-slate-900 bg-slate-100 rounded-sm text-[6px] text-slate-500 font-mono">
-                                            How can I help?
-                                         </div>
-                                         <div className="w-3/4 h-auto p-1 bg-cyan-600 text-white rounded-sm self-end text-[6px] font-mono">
-                                            Fix latency.
-                                         </div>
+                                         <div className="w-full h-auto p-1 border border-slate-900 bg-slate-100 rounded-sm text-[6px] font-mono">How can I help?</div>
+                                         <div className="w-3/4 h-auto p-1 bg-cyan-600 text-white rounded-sm self-end text-[6px] font-mono">Fix latency.</div>
                                      </div>
                                  </div>
-                                 <span className="font-mono text-[10px] text-center text-slate-900 font-bold uppercase tracking-wider">Hypothesis A: The Chatbot</span>
+                                 <span className="font-mono text-[10px] text-center text-slate-900 font-bold uppercase tracking-wider">Hypothesis A: Chatbot</span>
                              </div>
-
-                             {/* Wireframe 2: Modal */}
                              <div className="flex-1 flex flex-col gap-2">
                                  <div className="w-full aspect-square border-2 border-cyan-600 bg-cyan-50 relative flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_0px_rgba(8,145,178,1)]">
-                                     {/* Background (Dimmed) */}
                                      <div className="absolute inset-0 p-2 space-y-2 opacity-20">
-                                         <div className="w-full h-2 bg-slate-900"></div>
-                                         <div className="w-full h-2 bg-slate-900"></div>
-                                         <div className="w-full h-2 bg-slate-900"></div>
-                                         <div className="w-full h-2 bg-slate-900"></div>
+                                         <div className="w-full h-2 bg-slate-900"></div><div className="w-full h-2 bg-slate-900"></div>
                                      </div>
-                                     {/* Modal */}
-                                     <div className="w-3/4 h-2/3 bg-white border-2 border-cyan-600 z-10 p-3 flex flex-col gap-3 shadow-lg">
+                                     <div className="w-3/4 h-2/3 bg-white border-2 border-cyan-600 z-10 p-3 flex flex-col shadow-lg">
                                          <div className="w-1/2 h-3 bg-slate-900 mb-1"></div>
-                                         <div className="w-full h-10 bg-slate-100 border border-slate-200 flex items-center justify-center text-[8px] font-mono text-slate-400">DIAGNOSTIC_DATA</div>
-                                         <div className="mt-auto w-full h-6 bg-cyan-600 flex items-center justify-center text-white text-[8px] font-bold tracking-widest uppercase">Apply Fix</div>
+                                         <div className="w-full h-10 bg-slate-100 border border-slate-200"></div>
+                                         <div className="mt-auto w-full h-6 bg-cyan-600"></div>
                                      </div>
                                  </div>
                                  <span className="font-mono text-[10px] text-center text-cyan-600 font-bold uppercase tracking-wider">Hypothesis B: The Tool</span>
@@ -202,57 +99,142 @@ const AICaseStudy: React.FC = () => {
                 </div>
             </Section>
 
-            <Section id="experiment" title="The Experiment" subtitle="02 / Testing">
-                <div className="max-w-3xl mb-16">
-                    <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tight">Methodology</h3>
-                    <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
-                        I designed and executed evaluative research testing three distinct AI troubleshooting concepts—differing across chat vs. modal, conversational vs. direct, and visual vs. text-only paradigms.
-                    </p>
-                    <p className="text-slate-600 leading-relaxed mb-12 text-lg font-light">
-                        The team mocked up each concept using the same underlying data. Participants then tested all three, allowing me to collect observational data and user-reported helpfulness scores at both the flow and step-by-step levels.
-                    </p>
+            <Section id="methodology" title="Methodology" subtitle="02 / Designing for Confidence">
+                <div className="grid md:grid-cols-12 gap-12">
+                    <div className="md:col-span-8">
+                         <p className="text-slate-600 leading-relaxed text-lg font-light mb-8">
+                             Given the need to define a novel interface rather than just measure preferences, the research moved beyond descriptive studies.
+                         </p>
+                         <ul className="space-y-6 text-lg font-light text-slate-600">
+                             <li className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                 <strong className="text-slate-900 sm:w-48 flex-shrink-0">Specific Research Question:</strong>
+                                 <span className="italic">"Given that the AI is technically capable, what is the ideal interaction interface that maximizes user value, confidence, and trust?"</span>
+                             </li>
+                             <li className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                 <strong className="text-slate-900 sm:w-48 flex-shrink-0">Method Chosen:</strong>
+                                 <span>Comparative Concept Testing using a within-subjects, qualitative design.</span>
+                             </li>
+                             <li className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                 <strong className="text-slate-900 sm:w-48 flex-shrink-0">Justification:</strong>
+                                 <span>Asking users what they want is unreliable. By testing embodied concepts (prototypes), we could observe how users actually responded to the nature of the proposed solution (e.g., control vs. autonomy, transparency vs. simplicity).</span>
+                             </li>
+                         </ul>
+                    </div>
+                    <div className="md:col-span-4">
+                        <div className="bg-slate-50 border border-slate-200 p-8 h-full">
+                            <h4 className="font-mono text-xs uppercase tracking-widest mb-4">Sampling Strategy (n=40)</h4>
+                            <div className="space-y-6">
+                                <div className="flex-1">
+                                    <UsersIcon className="w-6 h-6 text-cyan-600 mb-2"/>
+                                    <h5 className="font-bold text-slate-900">Generalists</h5>
+                                    <p className="text-sm text-slate-600">Expected to benefit most from AI assistance.</p>
+                                </div>
+                                <div className="flex-1">
+                                    <UsersIcon className="w-6 h-6 text-slate-500 mb-2"/>
+                                    <h5 className="font-bold text-slate-900">Specialists</h5>
+                                    <p className="text-sm text-slate-600">Experts who influence enterprise adoption; served as "negative sampling" to validate utility beyond novices.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <AIConceptVisualizer />
+            </Section>
+            
+            <Section id="analysis" title="Analysis & Execution" subtitle="03 / Ensuring Rigor">
+                 <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p className="text-slate-600 leading-relaxed text-lg font-light mb-6">
+                            The complexity was ensuring the small qualitative sample provided highly reliable, high-confidence findings suitable for driving a strategic product decision.
+                        </p>
+                        <ul className="space-y-4 text-slate-600 text-lg font-light">
+                            <li className="flex gap-4">
+                                <strong className="text-slate-800 w-32 flex-shrink-0">Rigor Applied:</strong>
+                                <span>I implemented a highly structured analysis involving Counterbalancing (to eliminate order bias when testing multiple concepts) and Triangulation.</span>
+                            </li>
+                            <li className="flex gap-4">
+                                <strong className="text-slate-800 w-32 flex-shrink-0">Triangulation:</strong>
+                                <span>Confidence was only established by synthesizing three data sources: Quantitative Helpfulness Scores (step and flow level), Qualitative Think-Aloud feedback, and Direct Comparative Feedback between concepts. This ensured that subjective opinions were always tied to specific, measurable pain points.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="bg-white border border-slate-900 p-8 shadow-[8px_8px_0px_0px_rgba(8,145,178,1)]">
+                        <h4 className="font-mono text-xs uppercase tracking-widest mb-6">Triangulation for High Confidence</h4>
+                        <div className="space-y-4">
+                            <div className="p-4 border border-slate-200 bg-slate-50 text-center text-sm font-semibold text-slate-700">Quantitative Helpfulness Scores</div>
+                            <div className="p-4 border border-slate-200 bg-slate-50 text-center text-sm font-semibold text-slate-700">Qualitative Think-Aloud Feedback</div>
+                            <div className="p-4 border border-slate-200 bg-slate-50 text-center text-sm font-semibold text-slate-700">Direct Comparative Feedback</div>
+                        </div>
+                        <div className="text-center my-4 font-black text-slate-300 text-3xl">&darr;</div>
+                        <div className="p-6 bg-cyan-600 text-white text-center">
+                            <span className="font-bold text-lg">High-Confidence Findings</span>
+                        </div>
+                    </div>
+                 </div>
             </Section>
 
-            <Section id="outcome" title="The Verdict" subtitle="03 / Conclusion">
+            <Section id="impact" title="The Impact" subtitle="04 / The Outcome">
+                 <p className="text-slate-600 leading-relaxed text-lg font-light max-w-3xl mb-12">
+                     The findings were disseminated through a multi-layered deck and a series of presentations to adjacent teams. This "internal salesmanship" generated organizational consensus and moved the organization from receiving findings to making decisions.
+                 </p>
                  <div className="bg-slate-900 text-white p-12 shadow-[8px_8px_0px_0px_rgba(8,145,178,1)]">
-                     <h3 className="text-3xl font-bold mb-6 text-cyan-400">Structure more than Conversation</h3>
-                     <p className="text-slate-300 text-lg font-light leading-relaxed max-w-3xl mb-8">
-                         The research proved that in high-stress scenarios, users reject "Chatty" AI. They prefer **Structured Modals** that present the Root Cause, The Fix, and The Evidence in a verifiable format.
-                     </p>
-                     <p className="text-slate-400 text-lg font-light leading-relaxed max-w-3xl mb-8">
-                        The final report established key principles governing how users perceive and expect AI tools to function. This research was instrumental in shaping the feature's entire direction, providing the team with a validated concept and design principles for the future development of the AI-powered troubleshooting experience.
-                     </p>
-                     <div className="flex items-center gap-4">
-                         <CheckCircleIcon className="w-6 h-6 text-cyan-400" />
-                         <span className="font-mono text-sm uppercase tracking-widest text-cyan-400">Direction Validated</span>
+                     <div className="grid md:grid-cols-2 gap-8">
+                         <div>
+                             <h3 className="text-xl font-bold mb-4 text-cyan-400">Tactical Impact</h3>
+                             <ul className="space-y-4 text-slate-300">
+                                 <li className="flex gap-3">
+                                     <XCircleIcon className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-1" />
+                                     <span><span className="font-bold text-white">Rejected chat interface,</span> providing immediate confidence to proceed with a guided, non-chat-based solution.</span>
+                                 </li>
+                                 <li className="flex gap-3">
+                                     <CheckCircleIcon className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-1" />
+                                     <span><span className="font-bold text-white">Bypassed dependency</span> on a central AI Chatbot team, significantly accelerating time-to-market.</span>
+                                 </li>
+                             </ul>
+                         </div>
+                         <div>
+                             <h3 className="text-xl font-bold mb-4 text-cyan-400">Strategic Impact</h3>
+                             <ul className="space-y-4 text-slate-300">
+                                 <li className="flex gap-3">
+                                     <TargetIcon className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-1" />
+                                     <span>Provided the organization a <span className="font-bold text-white">critical head start</span> in addressing domain-specific challenges of AI for troubleshooting.</span>
+                                 </li>
+                                 <li className="flex gap-3">
+                                     <CheckCircleIcon className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-1" />
+                                     <span><span className="font-bold text-white">Established a long-term roadmap</span> grounded in validated user needs rather than mere technical capacity.</span>
+                                 </li>
+                             </ul>
+                         </div>
                      </div>
                  </div>
             </Section>
 
-            <Section id="launch" title="The Result" subtitle="04 / Realization">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <Section id="stakeholders" title="Stakeholder Alignment" subtitle="05 / Driving Adoption">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <p className="text-2xl text-slate-800 leading-relaxed mb-8 font-light tracking-tight">
-                            The insights from this research directly informed the design of <span className="font-bold">Gemini in Databases</span>. The final product successfully integrates the structured, modal-based approach validated by our testing.
+                        <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
+                            The project required engaging a large, cross-functional group (multiple Product Managers, Design Leads, Engineering Managers) whose alignment was critical for adoption.
                         </p>
-                        <a 
-                            href="https://cloud.google.com/blog/products/databases/inside-ai-assisted-troubleshooting-for-databases" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-3 px-8 py-4 bg-cyan-600 text-white font-bold uppercase tracking-widest hover:bg-cyan-700 transition-all group shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] hover:shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
-                        >
-                            <span>Read Launch Announcement</span>
-                            <LinkIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </a>
+                        <p className="text-slate-600 leading-relaxed mb-6 text-lg font-light">
+                            Post-launch, feature usage was low. Stakeholders were focused on their own areas, missing the systemic failure in the user acquisition funnel.
+                        </p>
+                        <p className="text-slate-600 leading-relaxed text-lg font-light">
+                            I collaborated with a quantitative researcher to proactively model this funnel, which did not previously exist. By making the systemic breakdown visible and data-backed, I applied necessary pressure on stakeholders to prioritize fixing the funnel, demonstrating accountability for the feature’s success beyond the research phase.
+                        </p>
                     </div>
-                    <div className="bg-slate-50 p-8 border border-slate-200 shadow-[8px_8px_0px_0px_rgba(8,145,178,0.2)]">
-                         <h4 className="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4">From the Blog</h4>
-                         <blockquote className="text-slate-900 font-serif text-xl italic leading-relaxed mb-6">
-                            "We designed the experience to meet users where they are... providing context-aware suggestions that help DBAs move from detection to resolution in seconds."
-                         </blockquote>
-                         <div className="text-xs font-bold uppercase text-cyan-600 tracking-widest">Google Cloud Blog</div>
+                    <div className="bg-white border border-slate-900 p-8 shadow-[8px_8px_0px_0px_rgba(8,145,178,1)]">
+                        <h4 className="font-mono text-xs uppercase tracking-widest mb-6">User Acquisition Funnel</h4>
+                        <div className="space-y-2">
+                            <div className="h-12 bg-slate-200 w-full flex items-center justify-center text-[10px] font-mono uppercase tracking-wider text-slate-500">Awareness</div>
+                            <div className="h-10 bg-slate-200 w-[80%] mx-auto flex items-center justify-center text-[10px] font-mono uppercase tracking-wider text-slate-500">Consideration</div>
+                            <div className="h-8 bg-cyan-500 w-[30%] mx-auto flex items-center justify-center text-[10px] font-mono uppercase tracking-wider text-white relative">
+                                <span className="z-10">Enabled</span>
+                                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center">
+                                    <div className="w-px h-8 bg-red-400 border border-dashed" />
+                                    <span className="text-red-600 bg-red-50 text-xs px-1 font-bold">Weak Point</span>
+                                </div>
+                            </div>
+                            <div className="h-6 bg-cyan-500 w-[10%] mx-auto flex items-center justify-center text-[10px] font-mono uppercase tracking-wider text-white mt-12">Usage</div>
+                        </div>
                     </div>
                 </div>
             </Section>
