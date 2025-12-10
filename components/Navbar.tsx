@@ -15,6 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
     { id: 'spanner', label: 'Spanner Hotspots' },
     { id: 'recommendations', label: 'Dead Clicks' },
     { id: 'tier1', label: 'Adv. Observability' },
+    { id: 'labs', label: 'Labs' },
   ];
 
   const handleNav = (id: string) => {

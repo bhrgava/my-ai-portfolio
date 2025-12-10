@@ -5,6 +5,7 @@ import SpannerCaseStudy from './components/SpannerCaseStudy';
 import AICaseStudy from './components/AICaseStudy';
 import RecommendationsCaseStudy from './components/RecommendationsCaseStudy';
 import Tier1WorkloadsCaseStudy from './components/Tier1WorkloadsCaseStudy';
+import Labs from './components/Labs';
 import PasswordProtect from './components/PasswordProtect';
 
 const App: React.FC = () => {
@@ -20,23 +21,24 @@ const App: React.FC = () => {
     setIsAuthenticated(true);
   };
 
-  const caseStudyComponents: { [key: string]: React.ReactNode } = {
+  const pageComponents: { [key: string]: React.ReactNode } = {
     'spanner': <SpannerCaseStudy />,
     'ai': <AICaseStudy />,
     'recommendations': <RecommendationsCaseStudy />,
     'tier1': <Tier1WorkloadsCaseStudy />,
+    'labs': <Labs />,
   };
 
-  const isCaseStudyPage = activePage !== 'about' && caseStudyComponents[activePage];
+  const isProtectedPage = activePage !== 'about' && activePage !== 'labs' && pageComponents[activePage];
 
   const renderContent = () => {
-    if (isCaseStudyPage && !isAuthenticated) {
+    if (isProtectedPage && !isAuthenticated) {
       return <PasswordProtect correctPassword="Unlock123" onSuccess={handleAuthentication} />;
     }
     if (activePage === 'about') {
         return <About onNavigate={setActivePage} />;
     }
-    return caseStudyComponents[activePage];
+    return pageComponents[activePage];
   }
 
   return (
