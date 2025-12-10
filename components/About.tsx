@@ -107,6 +107,9 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
               <p className="mt-6 text-2xl md:text-3xl font-light text-slate-600 tracking-tight max-w-3xl mx-auto">
                   A UX Researcher specializing in the translation of complex technical systems into human-centered product strategies.
               </p>
+              <p className="mt-8 text-lg font-light text-slate-500 max-w-3xl mx-auto leading-relaxed">
+                  Experienced UX Researcher with 9+ years in high-impact roles, most recently 4 years at Google Cloud (GCP). Specialized in leading foundational and evaluative research to drive product strategy and improve user experiences in enterprise and consumer settings. Proven ability to deliver actionable insights that led to major feature launches.
+              </p>
               <div className="mt-12 flex items-center justify-center gap-2">
                   <span className="relative flex h-3 w-3">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
