@@ -75,13 +75,17 @@ const CaseStudyCard: React.FC<{
     caseNumber: string;
     title: string;
     description: string;
-}> = ({ onClick, caseNumber, title, description }) => (
+    client: string;
+}> = ({ onClick, caseNumber, title, description, client }) => (
     <button 
         onClick={onClick} 
         className="group text-left bg-white rounded-lg transition-all duration-200 relative p-8 shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(37,99,235,1)] hover:shadow-[2px_2px_0px_0px_rgba(236,72,153,1),4px_4px_0px_0px_rgba(37,99,235,1)] hover:-translate-x-1 hover:-translate-y-1 border-2 border-slate-900"
     >
         <div>
-            <span className={`text-[10px] font-mono text-blue-600 uppercase tracking-widest block mb-2 font-bold`}>Case Study {caseNumber}</span>
+            <div className="flex justify-between items-center mb-2">
+                <span className={`text-[10px] font-mono text-blue-600 uppercase tracking-widest block font-bold`}>Case Study {caseNumber}</span>
+                <span className="text-[10px] font-mono bg-slate-100 text-slate-500 px-2 py-1 rounded-sm">{client}</span>
+            </div>
             <span className="text-2xl font-bold text-slate-900">{title}</span>
             <p className="text-slate-500 mt-3 font-light leading-snug">{description}</p>
         </div>
@@ -133,7 +137,10 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                   >
                       <div className="grid md:grid-cols-2 gap-12 items-center">
                           <div>
-                              <span className="text-[10px] font-mono text-blue-600 uppercase tracking-widest block mb-2 font-bold">Featured Case Study</span>
+                              <div className="flex justify-between items-center mb-2">
+                                <span className="text-[10px] font-mono text-blue-600 uppercase tracking-widest block font-bold">Featured Case Study</span>
+                                <span className="text-[10px] font-mono bg-slate-100 text-slate-500 px-2 py-1 rounded-sm">Google Cloud</span>
+                              </div>
                               <span className="text-4xl font-bold text-slate-900">AI Troubleshooting</span>
                               <p className="text-slate-500 mt-4 font-light leading-relaxed">Defining interaction models for AI in high-stakes contexts. This foundational research guided the design of AI assisted troubleshooting by validating a structured, non-chat interface to build user trust and accelerate time-to-market.</p>
                               <div className="flex items-center gap-2 mt-8 text-blue-600 text-xs font-mono uppercase tracking-widest font-bold">
@@ -163,18 +170,21 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                           caseNumber="01"
                           title="Spanner Hotspots"
                           description="Revealing the invisible mechanics of database latency."
+                          client="Google Cloud"
                       />
                       <CaseStudyCard
                           onClick={() => onNavigate('recommendations')}
                           caseNumber="03"
                           title="Dead Clicks"
                           description="Diagnosing the failure of high-value proactive features."
+                          client="Google Cloud"
                       />
                       <CaseStudyCard
                           onClick={() => onNavigate('tier1')}
                           caseNumber="04"
                           title="Advanced Observability"
                           description="Reframing the customer definition from 'Who' to 'What'."
+                          client="Google Cloud"
                       />
                   </div>
               </div>
@@ -186,7 +196,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
             <div>
               <ExperienceItem 
                 role="UX Research Lead"
-                company="Google"
+                company="Google Cloud"
                 period="Mar 2022 - Present"
                 description="Lead UXR for Cloud Databases Observability. Driving strategy for AI-powered troubleshooting and critical workload management."
                 tags={['Enterprise', 'Cloud', 'AI', 'Observability']}

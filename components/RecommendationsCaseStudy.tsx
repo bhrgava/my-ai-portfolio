@@ -225,8 +225,13 @@ const RecommendationsCaseStudy: React.FC = () => {
                 </div>
 
                 <div className="relative z-10">
-                    <div className="inline-block mb-6 px-3 py-1 border-2 border-slate-900 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(34,197,94,1)]">
-                        Affordance Audit
+                    <div className="flex flex-wrap gap-4 mb-6">
+                        <div className="inline-block px-3 py-1 border-2 border-slate-900 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(34,197,94,1)]">
+                            Affordance Audit
+                        </div>
+                        <div className="inline-block px-3 py-1 border-2 border-slate-900 bg-slate-800 text-white text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(34,197,94,1)]">
+                            Client: Google Cloud
+                        </div>
                     </div>
                     <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
                         DEAD<br/>CLICKS

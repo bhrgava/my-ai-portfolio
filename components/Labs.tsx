@@ -122,8 +122,8 @@ const labsData = [
       stage: 'Reporting and evaluating the research',
       ideas: [
         {
-            title: 'Styling the report',
-            description: 'The report must be written manually, but once written AI would be very useful in styling it - not just visually but to align with various style guidelines.',
+            title: 'Styling a document',
+            description: 'A report written as a "word document" can be styled using AI - not just visually but to align with various style guidelines.',
             tool: 'Gemini or ChatGPT prompts',
             type: 'Bot',
             reliability: 'Very effective. Ai is good at following guidelines around styling and language.',

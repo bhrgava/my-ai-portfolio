@@ -40,22 +40,27 @@ const SpannerCaseStudy: React.FC = () => {
         </div>
 
         <div className="relative z-10">
-        <div className="inline-block mb-6 px-3 py-1 border-2 border-slate-900 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(220,38,38,1)]">
-            Foundational Research
-        </div>
-        <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
-            SPANNER<br/>HOTSPOTS
-        </h1>
-        <p className="text-xl md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed mb-12 bg-white/80 backdrop-blur-sm p-4 border-l-4 border-red-600">
-            Revealing the invisible mechanics of database latency.
-        </p>
-        <button 
-            onClick={() => scrollTo('problem')}
-            className="group flex items-center gap-2 text-slate-900 hover:text-red-600 transition-colors"
-        >
-            <span className="text-xs font-bold uppercase tracking-widest border-b-2 border-transparent group-hover:border-red-600">Start Investigation</span>
-            <ChevronDownIcon className="w-4 h-4" />
-        </button>
+            <div className="flex flex-wrap gap-4 mb-6">
+                <div className="inline-block px-3 py-1 border-2 border-slate-900 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(220,38,38,1)]">
+                    Foundational Research
+                </div>
+                <div className="inline-block px-3 py-1 border-2 border-slate-900 bg-slate-800 text-white text-xs font-mono uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(220,38,38,1)]">
+                    Client: Google Cloud
+                </div>
+            </div>
+            <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
+                SPANNER<br/>HOTSPOTS
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed mb-12 bg-white/80 backdrop-blur-sm p-4 border-l-4 border-red-600">
+                Revealing the invisible mechanics of database latency.
+            </p>
+            <button 
+                onClick={() => scrollTo('problem')}
+                className="group flex items-center gap-2 text-slate-900 hover:text-red-600 transition-colors"
+            >
+                <span className="text-xs font-bold uppercase tracking-widest border-b-2 border-transparent group-hover:border-red-600">Start Investigation</span>
+                <ChevronDownIcon className="w-4 h-4" />
+            </button>
         </div>
     </Section>
 
