@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StarIcon, RobotIcon, LayoutIcon, CheckCircleIcon, LinkIcon } from './Icons';
+import { StarIcon, RobotIcon, LayoutIcon, CheckCircleIcon, LinkIcon, CodeIcon } from './Icons';
 
 const Section: React.FC<{
   id: string;
@@ -82,6 +82,15 @@ const labsData = [
             type: 'App',
             reliability: 'Effective. Even better, Studio can convert an image of an interface into a full blown prototype for capturing even more detail. The only issue here would be managing the time taken to generate a good interface.',
             rating: 4,
+            impactRating: 4,
+        },
+        {
+            title: 'Manage recruiting',
+            description: 'Track recruiting outreach',
+            tool: 'This requires a tool that can use the API for gmail or another email provider.',
+            type: 'Code',
+            reliability: 'Effective, but depends on the specific implementation.',
+            rating: 3,
             impactRating: 4,
         },
       ],
@@ -200,6 +209,7 @@ const IdeaHeaderGraphic: React.FC<{ idea: typeof labsData[0]['ideas'][0]; stage:
 
     const elements = [];
     const isApp = idea.type === 'App';
+    const isCode = idea.type === 'Code';
     
     // Content-derived metrics
     const titleWords = idea.title.split(' ').length;
@@ -375,7 +385,7 @@ const IdeaHeaderGraphic: React.FC<{ idea: typeof labsData[0]['ideas'][0]; stage:
             <div className="absolute top-3 right-3 p-2 bg-white/60 backdrop-blur-sm rounded-md border border-slate-900/10 shadow">
                 {isApp 
                     ? <LayoutIcon className="w-6 h-6 text-slate-600" title="App" /> 
-                    : <RobotIcon className="w-6 h-6 text-slate-600" title="Bot" />
+                    : isCode ? <div className="font-mono text-xs font-bold text-slate-600 px-1">&lt;/&gt;</div> : <RobotIcon className="w-6 h-6 text-slate-600" title="Bot" />
                 }
             </div>
         </div>
@@ -394,19 +404,23 @@ const IdeaCard: React.FC<{
 
     return (
         <div 
-            className="border-2 border-slate-900 bg-white rounded-lg transition-all duration-300 ease-in-out cursor-pointer shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(147,51,234,1)] hover:shadow-[2px_2px_0px_0px_rgba(236,72,153,1),4px_4px_0px_0px_rgba(147,51,234,1)] hover:-translate-x-1 hover:-translate-y-1"
+            className="border-2 border-slate-900 bg-white rounded-lg transition-all duration-300 ease-in-out cursor-pointer shadow-[4px_4px_0px_0px_rgba(236,72,153,1),8px_8px_0px_0px_rgba(147,51,234,1)] hover:shadow-[2px_2px_0px_0px_rgba(236,72,153,1),4px_4px_0px_0px_rgba(147,51,234,1)] hover:-translate-x-1 hover:-translate-y-1 h-full flex flex-col"
             onClick={onToggle}
             role="button"
             tabIndex={0}
             onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onToggle()}
             aria-expanded={isOpen}
         >
-            <div className="p-6 flex justify-between items-start gap-4">
-                <h3 className="font-bold text-slate-900 text-lg tracking-tight pr-4">{idea.title}</h3>
-                <div className="flex flex-col gap-2 flex-shrink-0 text-right">
+            <div className="p-6 flex flex-col gap-4">
+                <div>
+                     <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 mb-2 block">{stage}</span>
+                     <h3 className="font-bold text-slate-900 text-lg tracking-tight">{idea.title}</h3>
+                </div>
+                
+                <div className="flex flex-col gap-2 mt-auto">
                     {idea.impactRating > 0 && (
                          <div className="flex items-center gap-2" aria-label={`Impact: ${idea.impactRating} out of 5 stars`}>
-                            <span className="text-[10px] font-mono text-slate-500 uppercase">Impact</span>
+                            <span className="text-[10px] font-mono text-slate-500 uppercase w-20">Impact</span>
                             <div className="flex gap-0.5">
                                 {[...Array(5)].map((_, i) => (
                                     <StarIcon 
@@ -419,7 +433,7 @@ const IdeaCard: React.FC<{
                     )}
                     {idea.rating > 0 && (
                         <div className="flex items-center gap-2" aria-label={`Reliability: ${idea.rating} out of 5 stars`}>
-                            <span className="text-[10px] font-mono text-slate-500 uppercase">Reliability</span>
+                            <span className="text-[10px] font-mono text-slate-500 uppercase w-20">Reliability</span>
                             <div className="flex gap-0.5">
                                 {[...Array(5)].map((_, i) => (
                                     <StarIcon 
@@ -433,22 +447,22 @@ const IdeaCard: React.FC<{
                 </div>
             </div>
             <div 
-                className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`transition-all duration-500 ease-in-out overflow-hidden border-t border-slate-100 ${isOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'}`}
             >
                 <IdeaHeaderGraphic idea={idea} stage={stage} isOpen={isOpen} />
                 <div className="p-6 pt-4">
                     {idea.description && <p className="text-slate-600 font-light mb-4 text-base leading-relaxed">{idea.description}</p>}
                     
-                    <div className="grid sm:grid-cols-2 gap-4 text-sm font-mono">
+                    <div className="grid gap-4 text-sm font-mono mt-4">
                         {idea.tool && (
                             <div>
-                                <h4 className="text-slate-400 uppercase tracking-widest mb-1">Tool</h4>
+                                <h4 className="text-slate-400 uppercase tracking-widest mb-1 text-[10px]">Tool</h4>
                                 <p className="text-slate-800">{idea.tool}</p>
                             </div>
                         )}
                         {idea.reliability && (
                             <div>
-                                <h4 className="text-slate-400 uppercase tracking-widest mb-1">Impact and Reliability</h4>
+                                <h4 className="text-slate-400 uppercase tracking-widest mb-1 text-[10px]">Impact and Reliability</h4>
                                 <p className="text-slate-800">{idea.reliability}</p>
                             </div>
                         )}
@@ -462,6 +476,7 @@ const IdeaCard: React.FC<{
 
 const Labs: React.FC = () => {
     const [openCards, setOpenCards] = useState<Record<string, boolean>>({});
+    const [sortBy, setSortBy] = useState<'process' | 'impact' | 'reliability'>('process');
 
     const handleToggleCard = (title: string) => {
         setOpenCards(prev => ({
@@ -469,6 +484,30 @@ const Labs: React.FC = () => {
             [title]: !prev[title]
         }));
     };
+
+    // Flatten ideas
+    const allIdeas = labsData.flatMap(section => 
+        section.ideas.map(idea => ({
+            ...idea,
+            category: section.stage
+        }))
+    );
+
+    // Sort logic
+    const sortedIdeas = [...allIdeas].sort((a, b) => {
+        if (sortBy === 'process') {
+             const catIndexA = labsData.findIndex(s => s.stage === a.category);
+             const catIndexB = labsData.findIndex(s => s.stage === b.category);
+             return catIndexA - catIndexB;
+        }
+        if (sortBy === 'impact') {
+            return b.impactRating - a.impactRating;
+        }
+        if (sortBy === 'reliability') {
+            return b.rating - a.rating;
+        }
+        return 0;
+    });
 
     const safetyQuestions = [
         "Is your data being retained? If yes, for how long?",
@@ -512,27 +551,46 @@ const Labs: React.FC = () => {
                 </div>
             </Section>
             
-            <div className="py-24 px-6 space-y-24">
-                {labsData.map(section => (
-                    <div key={section.stage} id={section.stage.toLowerCase().replace(/\s/g, '-')}>
-                        <div className="max-w-5xl mx-auto">
-                            <h2 className="text-3xl font-bold tracking-tight text-slate-900 mb-12 pb-4 border-b border-slate-200">
-                                {section.stage}
-                            </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                                {section.ideas.map(idea => (
-                                    <IdeaCard 
-                                        key={idea.title} 
-                                        idea={idea} 
-                                        stage={section.stage}
-                                        isOpen={!!openCards[idea.title]}
-                                        onToggle={() => handleToggleCard(idea.title)}
-                                    />
-                                ))}
-                            </div>
-                        </div>
+            {/* Sorting Controls */}
+            <div className="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-100">
+                 <h2 className="text-2xl font-bold tracking-tight text-slate-900">Idea Collection</h2>
+                 <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-mono text-slate-400 uppercase tracking-widest mr-2">Sort By:</span>
+                    <button 
+                        onClick={() => setSortBy('process')}
+                        className={`px-4 py-2 text-xs font-bold uppercase tracking-widest border transition-all ${sortBy === 'process' ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-slate-500 border-slate-200 hover:border-slate-400'}`}
+                    >
+                        Process Phase
+                    </button>
+                    <button 
+                        onClick={() => setSortBy('impact')}
+                        className={`px-4 py-2 text-xs font-bold uppercase tracking-widest border transition-all ${sortBy === 'impact' ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-slate-500 border-slate-200 hover:border-slate-400'}`}
+                    >
+                        Impact
+                    </button>
+                    <button 
+                        onClick={() => setSortBy('reliability')}
+                        className={`px-4 py-2 text-xs font-bold uppercase tracking-widest border transition-all ${sortBy === 'reliability' ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-slate-500 border-slate-200 hover:border-slate-400'}`}
+                    >
+                        Reliability
+                    </button>
+                 </div>
+            </div>
+
+            <div className="py-12 px-6">
+                <div className="max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                        {sortedIdeas.map(idea => (
+                            <IdeaCard 
+                                key={idea.title} 
+                                idea={idea} 
+                                stage={idea.category}
+                                isOpen={!!openCards[idea.title]}
+                                onToggle={() => handleToggleCard(idea.title)}
+                            />
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
 
             {/* Additional Content Sections */}
